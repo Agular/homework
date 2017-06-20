@@ -1,0 +1,15 @@
+
+public class StartPacket extends Packet{
+	public StartPacket (short sessionNr, int packetNr){
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+	}
+	@Override
+	byte[] returnData() {
+		byte[] data = new byte[2];
+		
+		
+		return data;
+	}
+
+}

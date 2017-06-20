@@ -1,0 +1,32 @@
+import java.nio.ByteBuffer;
+
+public class StartPacket extends Packet{
+	String start = "Start"; // 5 Bytes
+	int dataSize; // 64 bit unsigned int
+	short fileNameSize;  // 2 Bytes
+	String fileName; // 0-255 Bytes
+	int crc; // 32 bit
+	
+	public StartPacket (short sessionNr, int packetNr){
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+	}
+	
+	public StartPacket(byte[] data){
+		super.sessionNr = (short)( ((data[0]&0xFF)<<8) | (data[1]&0xFF) );
+		super.packetNr = (int) data[2];
+	}
+	@Override
+	byte[] returnData() {
+		byte[] data = new byte[8];
+		data[0] = (byte) (sessionNr >> 8);
+		data[1] = (byte) (sessionNr & 0xFF);
+		data[2] = (byte) packetNr;
+		System.arraycopy(start.getBytes(), 0, data, 3, 5);
+		System.out.println(data[3]);
+		byte[] test = ByteBuffer.wrap(data, 3, 5).array();
+		System.out.println(test[0]);
+		return data;
+	}
+
+}

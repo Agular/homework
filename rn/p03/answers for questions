@@ -1,0 +1,75 @@
+Wieviele Felder sind im UDP-Header und welche Bedeutung haben diese?
+How many fields are in a UDP header and what do they mean?
+
+There are four fields in a UDP header:
+	
+	1) Source Port
+	2) Destination Port
+	3) Length
+	4) Checksum
+
+#############################################################################
+2.
+Bestimmen Sie die Größe der einzelnen Headerfelder mittels Paketinhaltsanzeige
+Determine the size of each header field via the package containment display.
+
+Each field has the size of 2 bytes. For example (00 f4), read in hex system.
+
+#############################################################################
+3.
+Wofür steht der Wert im Längenfeld genau? Überprüfen Sie die Aussage im UDP-Paket.
+What is the value in the length field exactly? Check the statement in the UDP package.
+
+The length field specifies the number of bytes in the UDP segment (header plus data). An explicit length value is needed since the size of the data field may differ from one UDP segment to the next. 
+The length of UDP payload for a selected packet is the Length - 8 bytes.
+#############################################################################
+4.
+Wieviel Byte kann ein UDP-Paket maximal beinhalten (Payload)?
+
+The maximum number of bytes that can be included in a UDP payload is (2^16 – 1) bytes plus the header bytes. This gives 65535 bytes – 8 bytes = 65527 bytes.
+#############################################################################
+5.
+Welchen Wert hat die maximal mögliche Quellportnummer?
+
+Die maximal mögliche Quellportnummer ist 65535.
+#############################################################################
+6.
+Was ist die Protokollnummer für UDP (Hexadezimal und Dezimal)?
+
+Die Protokollnummer für UDP ist 17 in Dezimal und 11 in Hexadezimal.
+#############################################################################
+7.
+Ermitteln Sie über welche Felder die Prüfsumme für UDP bestimmt wird!
+
+
+Checksum is the 16-bit one's complement of the one's complement sum of a pseudo header of information from the IP header, the UDP header, and the data, padded with zero octets at the end (if necessary) to make a multiple of two octets.[7]
+
+In other words, all 16-bit words are summed using one's complement arithmetic. Add the 16-bit values up. Each time a carry-out (17th bit) is produced, swing that bit around and add it back into the least significant bit.[8] The sum is then one's complemented to yield the value of the UDP checksum field.
+
+If the checksum calculation results in the value zero (all 16 bits 0) it should be sent as the one's complement (all 1s).
+
+The difference between IPv4 and IPv6 is in the data used to compute the checksum.
+#############################################################################
+8.
+Betrachten Sie ein Paar von UDP-Paketen, wobei das erste Paket von Ihrem Host versen-
+det wird und das zweite Paket die Antwort darstellt. Beschreiben Sie die Beziehung der
+Pakete anhand der Portnummern der Pakete.
+
+The first packet that is sent from client has the source port number of client's and the destination port number is server's.
+And when the packet is sent back from the server, same ports are used, but in reverse - the packets source port is that one of servers and destination is the port number from which the client's packet came from.
+#############################################################################
+9.
+Zusatz: Schneiden Sie ein kurzes UDP-Paket mit und überprüfen Sie die Prüfsumme
+manuell! Nehmen Sie alternativ das Paket Nr.425 aus dem mitgelieferten Paketmitschnitt.
+
+8D38 + 866F + 8D38 + 1A10 + 0011 + 000B +
++ 0D05 + E622 + 000B + 2255 + 0000 = 2D092 ---> D094 --->
+----> 1's complement ----> 2F6B
+
+#############################################################################
+10. Bei welchen Bitfehlern versagt dieses Prüfverfahren?1
+
+Die verwendete Pr[fsumme versagt schon bei bestimmten 2-Bit-Fehlern.
+
+
+

@@ -1,0 +1,63 @@
+
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+
+public class Server {
+	short sessionNr;
+	short packetNr;
+	
+	public static void main(String[] args) {
+		int port;	
+		DatagramSocket socket = null;
+		/*
+		 * Check for port input. Exit if failed.
+		 */
+		if (args.length != 1) {
+			System.out.println("Input: port");
+			System.exit(-1);
+		}
+		port = Integer.parseInt(args[0]);
+		try {
+			socket = new DatagramSocket(port);
+		} catch (SocketException e) {
+			System.out.println("Cannot open port on this number.");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		while (true) {
+			// Create a datagram packet to hold incoming UDP packet.
+			DatagramPacket inPacket = new DatagramPacket(new byte[1024], 1024);
+			// Block until the host receives a UDP packet.
+			try {
+				socket.receive(inPacket);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// Print the recieved data.
+			try {
+				printData(inPacket);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+	
+	 void printData(DatagramPacket request) throws Exception {
+		// Obtain references to the packet's array of bytes.		
+		StartPacket startPacket = new StartPacket(request.getData());
+		sessionNr = startPacket.getSessionNr();
+		System.out.println("Received from " + request.getAddress().getHostAddress() + ": " + startPacket.sessionNr + "Packet: " + startPacket.packetNr);
+		System.out.println("Receiving file: " + startPacket.getFileName() + " size: " + startPacket.getFileSize()+" bytes");
+		System.out.println("Included CRC32 checksum is: " + startPacket.getCrc());
+	}
+}

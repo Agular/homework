@@ -1,0 +1,9 @@
+package beleg;
+
+public class Snippet {
+	public static void main(String[] args) {
+		data[0] = (byte) (sessionNr >> 8);
+				data[1] = (byte) (sessionNr & 0xFF);
+	}
+}
+

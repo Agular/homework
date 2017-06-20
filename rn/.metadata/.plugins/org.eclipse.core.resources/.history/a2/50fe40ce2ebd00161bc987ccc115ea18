@@ -1,0 +1,61 @@
+package beleg;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
+public class Client {
+
+	public static void main(String[] args) {
+		DatagramSocket socket = null;
+		InetAddress IP = null;
+		String ipArg;
+		int port;
+		String fileName;
+		/*
+		 * Create a socket. Exit if failed.
+		 */
+		try {
+			socket = new DatagramSocket();
+		} catch (SocketException e) {
+			System.out.println("SOCKET CREATION FAILED");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		/*
+		 * Read input. Exit if input is not inserted correctly.
+		 */
+		if (args.length != 3) {
+			System.out.println("Input: IP Port file_name.extension");
+			System.exit(-1);
+		}
+			ipArg = args[0];
+			port = Integer.parseInt(args[1]);
+			fileName = args[2];
+
+		/*
+		 * Create a socket. Exit if failed.
+		 */
+		try {
+			IP = InetAddress.getByName(ipArg);
+		} catch (UnknownHostException e) {
+			System.out.println("Server could not be determined");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		byte[] data = new byte[1024];
+		String sentence = "PING" + "\r\n";
+		data = sentence.getBytes();
+		DatagramPacket sendPacket = new DatagramPacket(data, data.length, IP, port);
+		try {
+			socket.send(sendPacket);
+		} catch (IOException e) {
+			System.out.println("Error while sending a packet");
+			e.printStackTrace();
+		}
+	}
+}

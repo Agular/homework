@@ -1,0 +1,41 @@
+import java.io.*; 
+import java.net.*; 
+  
+class PingClient { 
+    public static void main(String args[]) throws Exception 
+    { 
+  
+      BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in)); 
+      DatagramSocket clientSocket = new DatagramSocket(); 
+      // Get command line argument.
+      if (args.length != 2) {
+         System.out.println("Required arguments: Hostaddress PortNumber");
+         return;
+      }
+      
+      InetAddress IPAddress = InetAddress.getByName(args[0]); 
+      int port = Integer.parseInt(args[1]);
+      byte[] sendData = new byte[1024]; 
+      byte[] receiveData = new byte[1024]; 
+      String sentence = "PING\r\n"; 
+      sendData = sentence.getBytes();
+      long startTime = System.currentTimeMillis();
+      DatagramPacket sendPacket = 
+         new DatagramPacket(sendData, sendData.length, IPAddress, port); 
+  
+      clientSocket.send(sendPacket); 
+  
+      DatagramPacket receivePacket = 
+         new DatagramPacket(receiveData, receiveData.length); 
+  
+      clientSocket.receive(receivePacket); 
+  
+      String modifiedSentence = 
+          new String(receivePacket.getData()); 
+      long finishTime = System.currentTimeMillis();
+      long dTime = finishTime - startTime;
+      System.out.println("FROM SERVER: " + modifiedSentence);
+      System.out.println("PING: " +dTime ); 
+      clientSocket.close(); 
+      } 
+} 	  

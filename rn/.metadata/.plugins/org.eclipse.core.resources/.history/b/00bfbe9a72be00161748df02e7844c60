@@ -1,0 +1,14 @@
+
+
+public class Ack extends Packet {
+	public Ack (short sessionNr, int packetNr){
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+	}
+	@Override
+	byte[] returnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class DataPacket extends Packet{
+	
+	@Override
+	byte[] returnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

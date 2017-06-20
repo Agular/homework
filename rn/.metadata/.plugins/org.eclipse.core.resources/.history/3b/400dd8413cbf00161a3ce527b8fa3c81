@@ -1,0 +1,66 @@
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Random;
+
+public class Client {
+
+	public static void main(String[] args) {
+		/*
+		 * Read input. Exit if input is not inserted correctly.
+		 */
+		System.out.println("start".getBytes().length);
+		if (args.length != 3) {
+			System.out.println("Input: IP Port file_name.extension");
+			System.exit(-1);
+		}
+		/*
+		 * Create instances of need arguments. 
+		 * */
+		String ipArg = args[0];
+		int port = Integer.parseInt(args[1]);
+		String fileName = args[2];
+		Random rand = new Random();
+	    short sessionNr = (short) rand.nextInt(Short.MAX_VALUE + 1);
+		DatagramSocket socket = null;
+		InetAddress IP = null;
+		/*
+		 * Open a socket. Exit if failed.
+		 */
+		try {
+			socket = new DatagramSocket();
+		} catch (SocketException e) {
+			System.out.println("SOCKET CREATION FAILED");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		/*
+		 * Get target for socket. Exit if failed.
+		 */
+		try {
+			IP = InetAddress.getByName(ipArg);
+		} catch (UnknownHostException e) {
+			System.out.println("Server could not be determined");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		
+		Packet startPacket = new StartPacket(sessionNr, 1);
+		byte[] data = startPacket.returnData();
+		System.out.println("Client: SN "+ sessionNr + "Packet: " +startPacket.getPacketNr());
+		DatagramPacket sendPacket = new DatagramPacket(data, data.length, IP, port);
+		try {
+			socket.send(sendPacket);
+		} catch (IOException e) {
+			System.out.println("Error while sending a packet");
+			e.printStackTrace();
+		}
+		socket.close();
+	}
+}

@@ -1,0 +1,108 @@
+
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+
+public class Server {
+	static short sessionNr;
+	static int packetNr;
+	
+	public static void main(String[] args) {
+		int port;	
+		DatagramSocket socket = null;
+		String outFileName;
+		File outFile;
+		
+		/*
+		 * Check for port input. Exit if failed.
+		 */
+		if (args.length != 1) {
+			System.out.println("Input: port");
+			System.exit(-1);
+		}
+		port = Integer.parseInt(args[0]);
+		try {
+			socket = new DatagramSocket(port);
+		} catch (SocketException e) {
+			System.out.println("Cannot open port on this number.");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		// Create a datagram packet to hold incoming UDP startPacket.
+		DatagramPacket inPacket = new DatagramPacket(new byte[1024], 1024);
+		// Block until the host receives a UDP packet.
+		try {
+			socket.receive(inPacket);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// Print the recieved data.
+		try {
+			readStartData(inPacket);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Ack ack = new Ack(sessionNr, packetNr);
+		DatagramPacket ackDatagrampacket = new DatagramPacket(ack.returnData(),3,inPacket.getAddress(), inPacket.getPort());
+		try {
+			System.out.println("SERVER: SENDING ACK: SESSIONNR: "+ sessionNr +" PACKETNR: "+packetNr );
+			socket.send(ackDatagrampacket);
+		} catch (IOException e) {
+			System.out.println("Could not send ACK!");
+			e.printStackTrace();
+		}
+		
+		while (!socket.isClosed()) {
+			// Create a datagram packet to hold incoming UDP packet.
+			inPacket = new DatagramPacket(new byte[1024], 1024);
+			// Block until the host receives a UDP packet.
+			try {
+				socket.receive(inPacket);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// Print the recieved data.
+			try {
+				printData(inPacket);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ack = new Ack(sessionNr, packetNr);
+			ackDatagrampacket = new DatagramPacket(ack.returnData(),3,inPacket.getAddress(), inPacket.getPort());
+			try {
+				socket.send(ackDatagrampacket);
+			} catch (IOException e) {
+				System.out.println("Could not send ACK!");
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void readStartData(DatagramPacket request) throws Exception {
+		// Obtain references to the packet's array of bytes.		
+		StartPacket startPacket = new StartPacket(request.getData());
+		sessionNr = startPacket.getSessionNr();
+		packetNr = startPacket.getPacketNr();
+		System.out.println("SERVER: Received from " + request.getAddress().getHostAddress() + ": SESSIONR: " + startPacket.sessionNr + " PACKET: " + startPacket.packetNr);
+		System.out.println("SERVER: Receiving file: " + startPacket.getFileName() + " size: " + startPacket.getFileSize()+" bytes");
+		System.out.println("SERVER: Included CRC32 checksum is: " + startPacket.getCrc()+"\n");
+	}
+	public static void printData(DatagramPacket request) throws Exception {
+		// Obtain references to the packet's array of bytes.		
+		DataPacket startPacket = new DataPacket(request.getData());
+		sessionNr = startPacket.getSessionNr();
+		packetNr = startPacket.getPacketNr();
+		System.out.println("SERVER: DATAPACKET RECEIVE " + request.getAddress().getHostAddress() + ": SESSIONR: " + startPacket.sessionNr + " PACKET: " + startPacket.packetNr);
+	}
+}

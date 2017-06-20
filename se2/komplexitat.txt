@@ -1,0 +1,21 @@
+SOFTWARE-Komplexität
+
+	Anwnedungskomplexität			Systemkomplexität
+                            \			/
+                             \		       /
+                             Softwarekomplexität
+                                    
+                        ist problemabhängig und Lösungsabhängig
+                          /    \
+                	 /      \
+                	/	 \
+        einfache Aufgaben	schwierige Aufgaben
+        |			|	
+        |_			|_
+        | | 			| |
+    * angemessen gelöst       * angemessen gelöst
+    * umständlich gelöst      * umständlich gelöst
+
+    
+    umständlich gelöst			augemessen gelöst
+    *Künstliche Komplexität 		* natürliche Komplexität

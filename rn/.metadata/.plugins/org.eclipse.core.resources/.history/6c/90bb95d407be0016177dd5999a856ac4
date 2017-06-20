@@ -1,0 +1,25 @@
+
+
+public class Packet {
+	short sessionNr;
+	int packetNr;
+	byte[] data;
+	
+	public Packet(short sessionNr, int packetNr) {
+		super();
+		this.sessionNr = sessionNr;
+		this.packetNr = packetNr;
+	}
+	public short getSessionNr() {
+		return sessionNr;
+	}
+	public void setSessionNr(short sessionNr) {
+		this.sessionNr = sessionNr;
+	}
+	public int getPacketNr() {
+		return packetNr;
+	}
+	public void setPacketNr(int packetNr) {
+		this.packetNr = packetNr;
+	}
+}

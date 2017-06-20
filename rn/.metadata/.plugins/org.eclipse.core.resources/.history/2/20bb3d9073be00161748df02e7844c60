@@ -1,0 +1,21 @@
+
+public class StartPacket extends Packet{
+	String start = "Start"; // 5 Bytes
+	int dataSize; // 64 bit unsigned int
+	short fileNameSize;  // 2 Bytes
+	String fileName; // 0-255 Bytes
+	int crc; // 32 bit
+	public StartPacket (short sessionNr, int packetNr){
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+	}
+	@Override
+	byte[] returnData() {
+		byte[] data = new byte[3];
+		data[0] = (byte) (sessionNr >> 8);
+		data[1] = (byte) (sessionNr & 0xFF);
+		data[2] = (byte) packetNr;
+		return data;
+	}
+
+}

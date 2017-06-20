@@ -1,0 +1,57 @@
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+
+public class StartPacket extends Packet {
+	//sessionNr - 2 Bytes
+	//packetNr - 1 Byte
+	String start = "Start"; // 5 Bytes
+	long fileSize; // 64 bit unsigned int (8 Bytes)
+	short fileNameSize; // 2 Bytes
+	String fileName; // 0-255 Bytes
+	int crc; // 32 bit (4 Byes)
+	
+	/*
+	 * Our byte[] data must have the size (22 + fileNameSize) bytes
+	 * */
+
+	public StartPacket(short sessionNr, int packetNr, String fileName, long fileSize) {
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+		this.fileName = fileName;
+		this.fileSize = fileSize;
+	}
+
+	public StartPacket(byte[] data) {
+		super.sessionNr = (short) (((data[0] & 0xFF) << 8) | (data[1] & 0xFF));
+		super.packetNr = (int) data[2];
+		// byte[] test = Arrays.copyOfRange(data, 3, 8);
+		// System.out.println(new String(test));
+	}
+
+	@Override
+	byte[] returnData() {
+		byte[] data = new byte[22];
+		data[0] = (byte) (sessionNr >> 8);
+		data[1] = (byte) (sessionNr & 0xFF);
+		data[2] = (byte) packetNr;
+		System.arraycopy(start.getBytes(), 0, data, 3, 5); // Write Start into Packet
+		return data;
+	}
+
+	public long getFileSize() {
+		return fileSize;
+	}
+
+	public short getFileNameSize() {
+		return fileNameSize;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public int getCrc() {
+		return crc;
+	}
+
+}

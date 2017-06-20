@@ -1,0 +1,67 @@
+1.Bestimmen Sie die IP- und Portnummern der beiden Kommunikationspartner!
+
+Source(client): 192.168.1.102:1161
+Destination(server): 128.119.245.12:80
+#############################################################################
+2.Ermitteln Sie die Wireshark Paketnummern des Handshakes!
+
+Sie sind 1, 2, 3.
+#############################################################################
+3.Ermitteln Sie die relativen und echten Sequenznummern von Client und Server am Beginn der Übertragung (Diese werden zufällig erzeugt, Wireshark stellt allerdings die relativen Nummern dar [1]). Alle weiteren Ausführungen beziehen sich auf die relativen SN.
+
+Real sequence number in the beginning from the client 232129012 and ack
+is 0.
+Then the server answers with it's own sequence number 883061785 and 
+responds with client sequence number +1 = 232129013
+
+The relative numbers are 0 0 ---- 0 1 ----- 1 1
+#############################################################################
+4.Welche Werte für SN/ACK hat das 3. Segment des Handshakes und warum?
+
+SN has 1 and ACK has 1. This means that the client will send the packet
+with sequence number 1 and the server should confirm it with 1.
+#############################################################################
+5.Nutzen Sie die Darstellung: Flow Graph [2] um den Fluss der SN + ACK -Nummern zu analysieren.
+
+The ACK from the server is used until the end of the transmission.
+The only number to change is the SN from the client.
+#############################################################################
+6.Bestimmen Sie die Länge der ersten 6 Segmente!
+	1) 0
+	2) 0
+	3) 0
+	4) 565
+	5) 1460
+	6) 0
+#############################################################################
+7.Bestimmen Sie die RTT für die ersten 6 Segmente!
+	1) 0
+	2) 0
+	3) 0
+	4) 565
+	5) 1460
+	6) 0
+#############################################################################
+8.Gesucht ist die minimale und die maximale RTT in der Übertragung. Nutzen Sie die Darstellung [3] zur Bestimmung der RTT!
+#############################################################################
+9.Was ist die erste Fenstergröße des Empfängers in der Übertragung?
+
+6780
+#############################################################################
+10.Was ist die geringste Fenstergröße des Empfängers in der gesamten Übertragung? (Win-dows Scaling Graph)
+
+6780
+#############################################################################
+11.Gibt es Anpassungen der Fenstergröße?
+
+Es geht grosser.
+#############################################################################
+12.Woran erkennt man Segmentwiederholungen? Gibt es in der Übertragung Wiederholun-gen? Sie können Diagramm [4] nutzen.
+
+Gibt es keine Wiederholungen.
+#############################################################################
+13.Wieviele Daten bestätigt der Empfänger typischerweise? 5?
+#############################################################################
+14.Nutzen Sie die Darstellung [4] zur Bestimmung der Slow Start Phase! Ab welcher Segment-nummer endet die Phase?
+
+

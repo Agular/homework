@@ -1,0 +1,18 @@
+
+public class DataPacket extends Packet{
+	
+	
+	public DataPacket(short sessionNr, int packetNr){
+		super.sessionNr = sessionNr;
+		super.packetNr = packetNr;
+	}
+	public DataPacket (byte[] data){
+		
+	}
+	@Override
+	byte[] returnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
