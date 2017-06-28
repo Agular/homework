@@ -1,0 +1,10 @@
+The two lines p and q are on the same line.
+P is to the right of q and the destination point of p is left of q destination point.
+
+The closest situation where this situation can happen on the board is 
+when p and q are right next to each other and when they are on each others destination points.
+For one of them (p or q) to reach their destination, the other has to move away so that the other could immediately
+move there. And that is of course a minimum of 2 moves. Considering the board situations, it could be often
+more than 2 moves.
+
+Ragnar Luga
