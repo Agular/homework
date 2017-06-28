@@ -1,0 +1,2 @@
+ 
+http://stackoverflow.com/questions/19482684/how-can-i-malloc-an-array-of-struct-to-do-the-following-using-file-operation

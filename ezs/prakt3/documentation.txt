@@ -1,0 +1,5 @@
+N 512 cycles 110 time 0.002s
+N 10000 cycles 110 time 0.006s
+N 100000 cycles 110 time 0.003s
+N 1000000 cycles 110 time 0.004s
+N 100000000 cycles 110 time 0.095
