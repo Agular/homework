@@ -1,13 +1,21 @@
 :-[idas].
 h(Board, H):- h_m(Board, H1), h_pq(Board, H2), H is H1+H2.
 
+/*
+The "hollas" algorithm.
+*/
 h_pq(Board, H):-goal(Goal), maplist(switch_list, Board, Board_pos), maplist(switch_list, Goal, Right_pos),maplist(targets_list, Board_pos,Right_pos, Target_pos), maplist(pq_list, Target_pos, Values), max_list(Values, H).
+
+% Get where is the target position of the board tile
 targets_list([A1,B1,C1,D1],[A2, B2, C2, D2], T):-
 target(A1,A2,T1), PL1 = [T1],
 target(B1,B2,T2), append(PL1,[T2],PL2),
 target(C1,C2,T3), append(PL2,[T3],PL3),
 target(D1,D2,T4), append(PL3,[T4],T).
-target((X1,Y1),(X2,Y2),T):- DX is X2-X1, DY is Y2-Y1, T = (DX,DY).
+
+target((3,3),(_,_),(10,10)).
+target((_,_),(3,3),(10,10)).
+target((X1,Y1),(X2,Y2),T):- DX is X1-X2, DY is Y1-Y2, T = (DX,DY).
 pq_list([A,B,C,D], Value):-
 pq(A,B,V1),
 pq(A,C,V2),
