@@ -29,6 +29,7 @@ public class BankController {
                 client.getCreditCard().makeTransaction(new BigDecimal("20"));
             }
         }
-
+        Client m = bankClientGateway.returnClientInstanceBySocialId("3333", null);
+        m.payMonthlyBankCardFee();
     }
 }

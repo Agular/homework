@@ -3,6 +3,7 @@ package kodutoo4.client;
 import kodutoo4.card.BankCard;
 import kodutoo4.card.CreditCard;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -54,6 +55,23 @@ public class Client {
     }
 
     public void payMonthlyBankCardFee(){
-
+        try{
+            System.out.println("Taking monthly bank fee from bankcard.");
+            bankCard.makeTransaction(new BigDecimal("1.00"));
+        } catch (RuntimeException e){
+            System.out.println("There was unsufficient funds on the bankcard. Trying creditcard.");
+            if(creditCard != null){
+                try{
+                    creditCard.makeTransaction(new BigDecimal("1.00"));
+                } catch(RuntimeException e1){
+                    System.out.println("No sufficient funds on creditcard.");
+                    System.out.println("This client has no sufficient funds for monthly bank fee!");
+                    System.out.println("This client should be cancelled!");
+                }
+            } else{
+                System.out.println("This client has no sufficient funds for monthly bank fee!");
+                System.out.println("This client should be cancelled!");
+            }
+        }
     }
 }
