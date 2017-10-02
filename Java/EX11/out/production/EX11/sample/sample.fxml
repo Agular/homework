@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Button fx:id="magicButton" layoutX="433.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="61.0" prefWidth="119.0" text="MAGIC BUTTON" />
+        <Label layoutX="75.0" layoutY="14.0" text="Enter your &quot;MAGIC&quot; text here" textFill="#0920d3" />
+        <TextField fx:id="magicText" layoutX="78.0" layoutY="40.0" />
+        <Label layoutX="274.0" layoutY="44.0" text="Press the &quot;MAGIC&quot; button --&gt;" textFill="#0920d3" />
+        <Separator layoutY="83.0" prefHeight="25.0" prefWidth="600.0" />
+          <Label fx:id="magicLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="300.0" prefWidth="300.0" text="" textAlignment="RIGHT" textFill="#0920d3" wrapText="true">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Canvas fx:id="magicCanvas" height="300.0" layoutX="300.0" layoutY="100.0" width="300.0" />
+      <Label layoutX="45.0" layoutY="75.0" text="Enter &quot;snowman&quot; for a beautiful drawing" textFill="#0920d3" />
+    </children>
+</Pane>

@@ -1,0 +1,58 @@
+        Flower flower1 = new Tulip(10.0, "green");
+
+        Flower flower2 = new Tulip(15.0, "blue");
+
+        Flower flower3 = new Rose(10.0, true);
+
+        Flower flower4 = new Tulip(17.0, "blue");
+
+        Flower flower5 = new Tulip(18.0, "blue");
+
+        Flower flower6 = new Tulip(19.0, "blue");
+
+        Flower flower7 = new Rose(12.0, true);
+
+        Flower flower8 = new Rose(14.0, true);
+
+        Flower flower9 = new Rose(50.0, true);
+
+        Flower flower10 = new Rose(5.0, true);
+
+        Order order = new Order("Kati", "Tallinn");
+        order.add(flower1);
+        order.add(flower2);
+        order.add(flower3);
+        order.add(flower4);
+        order.add(flower5);
+        order.add(flower6);
+        order.add(flower7);
+        order.add(flower8);
+        order.add(flower9);
+        order.add(flower10);
+        System.out.print(order.pay());
+
+
+        Rose r1 = new Rose(10, true);
+        Rose r2 = new Rose(5, false);
+
+        Tulip t1 = new Tulip(10, "Red");
+        Tulip t2 = new Tulip(10, "Blue");
+        Tulip t3 = new Tulip(10, null);
+
+        Order o1 = new Order("Mati", "Maalt");
+        o1.add(r1);
+        o1.add(r2);
+        o1.add(t1);
+        o1.add(t2);
+        o1.add(t3);
+        o1.add(r1);
+        System.out.println(o1.pay());
+
+if (amount >= 0) {
+            if (amount >= DISC_AMOUNT && this.getPrice() >= 0) {
+                double discount = this.getPrice() * DISC_PERCENT;
+                return this.getPrice() - discount;
+            }
+            return this.getPrice();
+        }
+        return 0.00;

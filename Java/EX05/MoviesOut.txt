@@ -1,0 +1,94 @@
+Movie1
+Release date: 24/02/2016
+Description: description
+Average rating: 8.0
+
+Marmortahvel
+Release date: 24/02/2015
+Description: hea film
+Average rating: 6.66
+
+Marmortahvel
+Release date: 24/02/2015
+Description: hea film
+Average rating: 6.66
+
+ experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.
+Average rating: 7.24Jurassic World
+Release date: 2015-06-09
+Description: Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.
+Average rating: 6.71Mad Max: Fury Road
+Release date: 2015-05-13
+Description: An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.
+Average rating: 7.47
+
+Spectre
+Release date: 2015-10-26
+Description: A cryptic message from Bond’s past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.
+Average rating: 6.29Star Wars: The Force Awakens
+Release date: 2015-12-15
+Description: Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.
+Average rating: 7.75
+
+The 5th Wave
+Release date: 14/01/2016
+Description: 16-year-old Cassie Sullivan tries to survive in a world devastated by the waves of an alien invasion that has already decimated the population and knocked mankind back to the Stone Age.
+Average rating: 5.01Terminator Genisys
+Release date: 23/06/2015
+Description: The year is 2029. John Connor, leader of the resistance continues the war against the machines. At the Los Angeles offensive, John's fears of the unknown future begin to emerge when TECOM spies reveal a new plot by SkyNet that will attack him from both fronts; past and future, and will ultimately change warfare forever.
+Average rating: 6.1
+
+Creed
+Release date: 25/11/2015
+Description: The former World Heavyweight Champion Rocky Balboa serves as a trainer and mentor to Adonis Johnson, the son of his late friend and former rival Apollo Creed.
+Average rating: 7.26
+
+Interstellar
+Release date: 05/11/2014
+Description: Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.
+Average rating: 8.22The Martian
+Release date: 30/09/2015
+Description: During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.
+Average rating: 7.59
+
+Heist
+Release date: 13/11/2015
+Description: A father is without the means to pay for his daughter's medical treatment. As a last resort, he partners with a greedy co-worker to rob a casino. When things go awry they're forced to hijack a city bus.
+Average rating: 5.63
+
+The Hunger Games: Mockingjay - Part 1
+Release date: 19/11/2014
+Description: Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.
+Average rating: 6.84The Hateful Eight
+Release date: 25/12/2015
+Description: Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.
+Average rating: 7.26
+
+Kung Fu Panda 3
+Release date: 23/01/2016
+Description: Continuing his "legendary adventures of awesomeness", Po must face two hugely epic, but different threats: one supernatural and the other a little closer to his home.
+Average rating: 5.82
+
+Minions
+Release date: 17/06/2015
+Description: Minions Stuart, Kevin and Bob are recruited by Scarlet Overkill, a super-villain who, alongside her inventor husband Herb, hatches a plot to take over the world.
+Average rating: 6.65Captain America: The Winter Soldier
+Release date: 20/03/2014
+Description: After the cataclysmic events in New York with The Avengers, Steve Rogers, aka Captain America is living quietly in Washington, D.C. and trying to adjust to the modern world. But when a S.H.I.E.L.D. colleague comes under attack, Steve becomes embroiled in a web of intrigue that threatens to put the world at risk. Joining forces with the Black Widow, Captain America struggles to expose the ever-widening conspiracy while fighting off professional assassins sent to silence him at every turn. When the full scope of the villainous plot is revealed, Captain America and the Black Widow enlist the help of a new ally, the Falcon. However, they soon find themselves up against an unexpected and formidable enemy—the Winter Soldier.
+Average rating: 7.67
+
+Ant-Man
+Release date: 14/07/2015
+Description: Armed with the astonishing ability to shrink in scale but increase in strength, con-man Scott Lang must embrace his inner-hero and help his mentor, Dr. Hank Pym, protect the secret behind his spectacular Ant-Man suit from a new generation of towering threats. Against seemingly insurmountable obstacles, Pym and Lang must plan and pull off a heist that will save the world.
+Average rating: 6.87
+
+Guardians of the Galaxy
+Release date: 30/07/2014
+Description: Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.
+Average rating: 8.04
+
+Inside Out
+Release date: 21/06/2015
+Description: Growing up can be a bumpy road, and it's no exception for Riley, who is uprooted from her Midwest life when her father starts a new job in San Francisco. Like all of us, Riley is guided by her emotions - Joy, Fear, Anger, Disgust and Sadness. The emotions live in Headquarters, the control center inside Riley's mind, where they help advise her through everyday life. As Riley and her emotions struggle to adjust to a new life in San Francisco, turmoil ensues in Headquarters. Although Joy, Riley's main and most important emotion, tries to keep things positive, the emotions conflict on how best to navigate a new city, house and school.
+Average rating: 8.044co, turmoil ensues in Headquarters. Although Joy, Riley's main and most important emotion, tries to keep things positive, the emotions conflict on how best to navigate a new city, house and school.
+Average rating: 8.04
