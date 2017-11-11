@@ -26,6 +26,8 @@ pq(C,D,V6),
 max_list([V1, V2, V3, V4, V5, V6],Value).
 pq((X1,Y1),(X2,Y2), Value):-
 (Y1==0,Y2==0,X2<X1,Value = 2);(Y2\==0;Y1\==0 ; X2>=X1),Value = 0.
+
+
 h_m(Board, H):- goal(Goal),maplist(switch_list, Board, Board_pos), maplist(switch_list, Goal, Right_pos), maplist(eval_pos_list, Board_pos, Right_pos, Man_list),flatten(Man_list, Sum_list), sumlist(Sum_list, H).
 eval_pos_list([A1, B1, C1, D1], [A2, B2, C2, D2], L):-
 eval_pos(A1, A2, X1), PL1 = [X1],

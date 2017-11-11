@@ -1,0 +1,221 @@
+1. Milles seisneb static typing ja dynamic typing erinevus?
+
+ Static typing
+ Muutuja tüüp on teada kompileerimise ajal – seda muuta
+ ei saa
+ Vähendab vigade hulka programmi töö ajal
+ Java, C++
+
+ Alternatiiv: dynamic typing
+ Muutuja tüüp selgub programmi tööajal (runtime interpretation)
+ Python, PHP
+
+
+2. Millal on klassi osad hästi kapseldatud (encapsulated)?
+Väljade kasutamine läbi getterite ja
+setterite
+
+Kui me pääseme ligi klassi osadele, millele me oleme lubatud ning mille muutmine ei muuda
+selle objekti kriitilist äriloogikat.
+
+
+3. Milliseid piiranguid seavad nähtavusele private, protected ja package-private (default)
+nähtavused?
+
+ Iga klass, väli ja meetod omab nähtavust
+ Ülemise taseme klassil:
+ public – nähtav kõigile
+ package-private – nähtav paketi sees
+ Alumise taseme elemendid (meetodid, väljad, sisemised klassid) lisandub:
+ private – nähtav klassi sees
+ protected – nähtav paketi sees ja alamklassidele
+ 
+4. Mis on Java virtuaalmasin ehk JVM? Mida seal käivitatakse? Mis on ja mida teeb
+kompilaator? 
+
+Java virtuaalmasin käitub kui abstraktse arvutiga, millega saame oma Java koodi käivitada.
+Selle eripära peitub selles, et see võimaldab ükskõik millisel arvutil jooksutada sama koodi.
+Et seda paremini aru saada, seletame lahti kompilaatori mõiste. Kompilaator on asi, mis teisendab
+kõrgemas keeles kirjutatud koodi nt Java masinale arusaadavaks koodiks. Kusjuures iga masin 
+võib olla erinev ning seetõttu kasutatakse ka erinevaid masinkäske (assembler).
+
+Seetõttu on tihti igal masinal erinev kompilaator, mistõttu peab ka meie kirjutatud kood
+iga masina puhul veidi teisiti kirjutatud olema. JVM võimaldab selle osa ära abstrakteerida.
+Selles asemel, et meie kood on iga masina jaoks erinev, on JVM iga masina jaoks erinev.
+
+
+
+5. Tüübiteisendus (casting) - tundke programmikoodis ära allateisendus ja ülesteisendus.
+
+
+6. Olgu antud suvaline objekt. Millist tüüpi see teoreetiliselt võib olla?
+
+ Liides
+ Object
+ Klass
+ Alamklass
+
+7. Milline on konstruktorite käivitusahel? Nt võib töösse tulla koodinäide ja teie
+ülesandeks on selgitada konstruktorite käivitamise järjekorda.
+
+Uut objekti luues kutsutakse alati välja ülemklassi argumendita
+konstruktor enne kui täidetakse käsud selle klassi konstruktoris
+
+1. Animal() konstruktor
+2. Dog() konstruktor
+3. Dachshund() konstruktor
+
+
+8. Kui alamklassis on ainult argumendita konstruktor, aga ülemklassis argumendiga
+konstruktor, kas see kood kompileerub? Mida tuleks teha, et kompileeruks?
+
+Ei kompileeruks. 
+Ülemklassis luua argumendita konstruktori asemel argumendiga konstruktor.
+Või alamklassis kutsuda eelnevalt ülemklassi argumendiga konstruktor.
+
+
+9. Milliste käskudega toimib konstruktorite omavaheline ja ülemklassi konstruktori väljakutse.
+super, this
+
+10. Mis vahe on viidal ja objektil?
+
+Viita võib kirjeldada kui pointerit C klassis, see näitab ära objekti asukoha süsteemi mälus.
+Mitu viita võivad viidata ühele objektile. 
+Objekt on klassist tehtud konkreetne eksemplar programmi töö ajal. Sellel on funktsioonid ja väljad.
+
+
+11. Mis vahe on klassil ja objektil?
+
+Klass = tüüp, definitsioon (programmikood). Olemas ka
+siis kui programm parasjagu ei tööta.
+
+ Objekt = klassist tehtud konkreetne eksemplar
+programmi töö ajal (new Type..)
+
+
+12. Kirjutage üks polümorfse koodi näide (polümorfism = pärimisest tulenev
+polümorfism). Testis peate hindama, kas mingi kood on polümorfne või mitte. NB!
+Lihtne klasside laiendamine ei põhjusta alati polümorfset käitumist.
+
+
+13. Mis vahe on meetodi override (ülekirjutamine) ja overload'il (ülelaadimine)?
+Override on siis, kui me alamklassis kirjutame üle ülemklassi meetodi, ehk meetodi pealis jääb samaks,
+kuid sisemiselt on loogikat muudetud.
+Overloading on sama nimega meetodi loomine klassis, kuid erineva argumendiga.
+
+14. Mida tagastab static factory method?
+loote objekti staatilise meetodi sees ja tagastate selle
+
+
+15. Mis vahet on static factory methodil ja konstruktoril? Kas need välistavad teineteist?
+Konstruktor loob konkreetse objekti teatud algväärtustega.
+Static factory meetodiga saame rakendada põhjalikumat äriloogikat, mis saab ise valida,
+milline objekt tuleks tagasi anda.
+
+
+16. Tundke vähemalt kolme põhjust, miks kasutada static factory methodit
+Kontrollite väljastatud objektide arvu:
+Kontrollite väljastatud objekti tüüpi:
+ei pea alati uut objekti looma
+static meetoditel on olemas nimed spetsiifika jaoks
+saavad tagastada ükskõik millist alamklassi.
+
+
+17. Mida hoitakse pinus (stack) ja kuhjas (heap)? (Oluline teada ainult aines käsitletu piires).
+Stack (pinu) on mälupiirkond, kus:
+ Kohene mälueraldus muutujatele nende
+deklareerimisel
+ Siin hoitakse primitiivset tüüpi väärtusi
+ Üks stack iga lõime (threadi) ehk käivitatava
+ühiku kohta
+
+Heap (kuhi) on mälupiirkond, kus:
+ Mälueraldus vajaduse tekkimisel
+ Siin hoitakse objektitüüpe
+ Üks heap terve JVM kohta
+
+
+
+18. Millal tekib NullPointerException?
+Iga objekt võib olla null, seega:
+ kui on ootamatult null, siis programm crashib
+NullPointerExceptioniga
+ Ootuspärast nulli ei ole võimalik mõistlikult
+kommunikeerida
+JAMA
+
+19. Mis on Optionali peamine mõte Java programmis?
+Võimaldab selgelt väljendada, kui
+väärtuse puudumine on planeeritud
+stsenaarium
+
+
+20. Kas abstraktsest klassist saab otse objekti luua? Kas liidesest saab otse objekti luua?
+Abstraktsest ei, liidesest ja.
+
+Millal eelistada abstraktset klassi liidesele ja vastupidi?
+
+Abstraktset klassi kasutame reeglina ülemtüübina, kus
+saame meetoditele ka konkreetse realisatsiooni
+pakkuda
+
+
+Liidest kasutame eelkõige sellise käitumise
+spetsifitseerimiseks, mis on laiemaks kasutamiseks
+Kokkulepete jaoks, realisatsioon on enda teha.
+
+
+21. Mida kontrollib == operaator? Mida teeb equals()? (Käitumine on erinev primitiivset tüüpi
+muutuja ja objekti puhul).
+
+Primitiivsete tüüpide korral sisulist võrdsust:
+Objektitüüpide korral samasust:
+Objektide korral kontrollib equals vaikimisi
+sama, mida ”==”: kas kaks viita viitavad
+samale objektile
+ Objektide korral kasutage equals(), aga:
+
+Sümmeetria: a.equals(b) saab olla tõene
+ainult siis kui ka b.equals(a)
+ Refleksiivsus: a.equals(a)
+ Transitiivsus: kui a.equals(b) ja
+b.equals(c), siis a.equals(c)
+
+Meetod, mis tagastab objekti väljadele
+vastava räsiväärtuse (hashi), mis ei tohi
+muutuda kui objekti olek ei muutu
+ Räsiväärtused jaotuvad ühtlaselt üle võimalike
+väärtuste hulga. Väga suure tõenäosusega on
+kahe erineva olekuga objekti räsid erinevad,
+kuid võivad siiski kattuda.
+
+
+22. Millist tüüpi argumendi soovib equals() meetod PinkHappyRabbit klassis? Miks?
+Object o
+
+
+23. Mis vahe on kontrollitud (checked) ja kontrollimata (unchecked) erinditel? Milline on
+kontrollimata erindite ühine ülemklass? RuntimeException
+
+Checked exceptions – kontrollitud erindid
+ Enamasti teadlikult loodud erind, aga ka JVM poolt
+IOException ja FileNotFoundException
+ Programmeerija peab neid töötlema.
+
+Unchecked exceptions – kontrollimata
+ Enamasti JVM-i poolt loodud erind (nt
+NullPointerException), aga seda võib luua ka
+programmeerija (nt IllegalArgumentException)
+ Te ei pea neid töötlema!
+
+
+24. Kas peale erindi kinnipüüdmist on võimalik programmi normaalse tööga jätkata?
+Ja.
+
+
+25. Tundke ära Java üldise koodikonventsiooni abil: klassi nimi, staatilise meetodi väljakutse,
+objektimeetodi väljakutse, konstant, väli. Näide: Kas obj.getName() on staatilise
+meetodi või objektimeetodi väljakutse? Võimalik on koodi kirjutada nii, et ta võ
+
+final class – ei saa luua alamklasse
+ final meetod – ei saa üle kirjutada

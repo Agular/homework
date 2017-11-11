@@ -2,12 +2,12 @@ package kodutoo4.tests;
 
 import kodutoo4.bankclientgateway.BankClientGateway;
 import kodutoo4.client.Client;
-import kodutoo4.client.JuniorClient;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 
 public class MonthlyBankCardFeeTests {
 

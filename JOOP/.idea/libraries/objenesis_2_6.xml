@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="objenesis-2.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/kodutoo8/objenesis-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/kodutoo8/byte-buddy-agent-1.7.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/kodutoo8/byte-buddy-1.7.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

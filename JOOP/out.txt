@@ -1,0 +1,6 @@
+With static methods
+15.0
+58.99999999999994
+With static methods
+15.0
+58.99999999999994
