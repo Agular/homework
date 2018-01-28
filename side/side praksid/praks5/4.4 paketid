@@ -1,0 +1,123 @@
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000       172.20.92.104         192.168.133.252       DNS      111    Standard query 0x5a58 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee
+      2 0.000408       192.168.133.252       172.20.92.104         DNS      351    Standard query response 0x5a58 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee SRV 0 100 389 dc2.intra.ttu.ee SRV 0 100 389 dc3.intra.ttu.ee SRV 0 100 389 dc1.intra.ttu.ee A 192.168.133.252 AAAA 2001:bb8:4002:133::252 A 192.168.133.253 AAAA 2001:bb8:4002:133::253 A 192.168.133.251 AAAA 2001:bb8:4002:133::251
+      3 0.195176       172.20.92.104         192.168.133.252       DNS      94     Standard query 0x7828 A enterpriseregistration.windows.net
+      4 0.195814       192.168.133.252       172.20.92.104         DNS      200    Standard query response 0x7828 A enterpriseregistration.windows.net CNAME enterpriseregistration.trafficmanager.net CNAME prod-a-drs-weu.cloudapp.net A 40.68.223.89
+      5 17.354361      172.20.92.104         192.168.133.252       DNS      111    Standard query 0x4726 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee
+      6 17.354789      192.168.133.252       172.20.92.104         DNS      351    Standard query response 0x4726 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee SRV 0 100 389 dc1.intra.ttu.ee SRV 0 100 389 dc2.intra.ttu.ee SRV 0 100 389 dc3.intra.ttu.ee A 192.168.133.251 AAAA 2001:bb8:4002:133::251 A 192.168.133.252 AAAA 2001:bb8:4002:133::252 A 192.168.133.253 AAAA 2001:bb8:4002:133::253
+      7 17.355950      172.20.92.104         192.168.133.252       DNS      76     Standard query 0xe3df A dc2.intra.ttu.ee
+      8 17.356295      192.168.133.252       172.20.92.104         DNS      92     Standard query response 0xe3df A dc2.intra.ttu.ee A 192.168.133.252
+      9 17.551561      172.20.92.104         192.168.133.252       DNS      94     Standard query 0xd48d A enterpriseregistration.windows.net
+     10 17.552058      192.168.133.252       172.20.92.104         DNS      200    Standard query response 0xd48d A enterpriseregistration.windows.net CNAME enterpriseregistration.trafficmanager.net CNAME prod-a-drs-weu.cloudapp.net A 40.68.223.89
+     11 18.059942      172.20.92.104         192.168.133.252       DNS      75     Standard query 0xb103 A www.example.com
+     12 18.060295      192.168.133.252       172.20.92.104         DNS      91     Standard query response 0xb103 A www.example.com A 93.184.216.34
+     13 18.084473      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=289/8449, ttl=1 (no response found!)
+     14 18.084633      172.20.92.254         172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     15 18.085842      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=290/8705, ttl=1 (no response found!)
+     16 18.085977      172.20.92.254         172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     17 18.087072      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=291/8961, ttl=1 (no response found!)
+     18 18.087199      172.20.92.254         172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     19 18.089253      172.20.92.104         192.168.133.252       DNS      86     Standard query 0x369e PTR 254.92.20.172.in-addr.arpa
+     20 18.089664      192.168.133.252       172.20.92.104         DNS      171    Standard query response 0x369e No such name PTR 254.92.20.172.in-addr.arpa SOA dc2.intra.ttu.ee
+     21 23.597297      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=292/9217, ttl=2 (no response found!)
+     22 23.597790      193.40.250.254        172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     23 23.599065      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=293/9473, ttl=2 (no response found!)
+     24 23.599327      193.40.250.254        172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     25 23.600368      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=294/9729, ttl=2 (no response found!)
+     26 23.600634      193.40.250.254        172.20.92.104         ICMP     134    Time-to-live exceeded (Time to live exceeded in transit)
+     27 23.602150      172.20.92.104         192.168.133.252       DNS      87     Standard query 0x2927 PTR 254.250.40.193.in-addr.arpa
+     28 23.646904      192.168.133.252       172.20.92.104         DNS      114    Standard query response 0x2927 PTR 254.250.40.193.in-addr.arpa PTR X460G2.ttu.ee
+     29 24.651042      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=295/9985, ttl=3 (no response found!)
+     30 24.665640      193.40.244.1          172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     31 24.666825      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=296/10241, ttl=3 (no response found!)
+     32 24.667316      193.40.244.1          172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     33 24.668688      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=297/10497, ttl=3 (no response found!)
+     34 24.669108      193.40.244.1          172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     35 24.671173      172.20.92.104         192.168.133.252       DNS      85     Standard query 0x6434 PTR 1.244.40.193.in-addr.arpa
+     36 24.671861      192.168.133.252       172.20.92.104         DNS      114    Standard query response 0x6434 PTR 1.244.40.193.in-addr.arpa PTR ttu-gw.eenet.ee
+     37 25.373771      172.20.92.104         192.168.133.252       DNS      93     Standard query 0xe0e9 A v10.vortex-win.data.microsoft.com
+     38 25.374201      192.168.133.252       172.20.92.104         DNS      203    Standard query response 0xe0e9 A v10.vortex-win.data.microsoft.com CNAME v10-win.vortex.data.microsoft.com.akadns.net CNAME geo.vortex.data.microsoft.com.akadns.net CNAME db5.vortex.data.microsoft.com.akadns.net A 40.77.226.250
+     39 25.676840      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=298/10753, ttl=4 (no response found!)
+     40 25.678393      109.105.98.113        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     41 25.679301      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=299/11009, ttl=4 (no response found!)
+     42 25.680804      109.105.98.113        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     43 25.681982      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=300/11265, ttl=4 (no response found!)
+     44 25.683480      109.105.98.113        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     45 25.685091      172.20.92.104         192.168.133.252       DNS      87     Standard query 0x592e PTR 113.98.105.109.in-addr.arpa
+     46 25.685418      192.168.133.252       172.20.92.104         DNS      117    Standard query response 0x592e PTR 113.98.105.109.in-addr.arpa PTR fi-csc.nordu.net
+     47 26.689024      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=301/11521, ttl=5 (no response found!)
+     48 26.696937      109.105.97.93         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     49 26.698245      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=302/11777, ttl=5 (no response found!)
+     50 26.707334      109.105.97.93         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     51 26.708616      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=303/12033, ttl=5 (no response found!)
+     52 26.717123      109.105.97.93         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     53 26.719059      172.20.92.104         192.168.133.252       DNS      86     Standard query 0xabbf PTR 93.97.105.109.in-addr.arpa
+     54 26.719396      192.168.133.252       172.20.92.104         DNS      116    Standard query response 0xabbf PTR 93.97.105.109.in-addr.arpa PTR se-fre.nordu.net
+     55 27.716102      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=304/12289, ttl=6 (no response found!)
+     56 27.732624      109.105.97.130        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     57 27.734083      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=305/12545, ttl=6 (no response found!)
+     58 27.750347      109.105.97.130        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     59 27.752019      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=306/12801, ttl=6 (no response found!)
+     60 27.768252      109.105.97.130        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     61 27.770491      172.20.92.104         192.168.133.252       DNS      87     Standard query 0xee28 PTR 130.97.105.109.in-addr.arpa
+     62 27.771012      192.168.133.252       172.20.92.104         DNS      117    Standard query response 0xee28 PTR 130.97.105.109.in-addr.arpa PTR dk-ore.nordu.net
+     63 28.759116      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=307/13057, ttl=7 (no response found!)
+     64 28.882561      109.105.97.57         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     65 28.884068      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=308/13313, ttl=7 (no response found!)
+     66 29.007115      109.105.97.57         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     67 29.008579      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=309/13569, ttl=7 (no response found!)
+     68 29.131635      109.105.97.57         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     69 29.134252      172.20.92.104         192.168.133.252       DNS      86     Standard query 0xfa0d PTR 57.97.105.109.in-addr.arpa
+     70 29.134610      192.168.133.252       172.20.92.104         DNS      116    Standard query response 0xfa0d PTR 57.97.105.109.in-addr.arpa PTR de-hmb.nordu.net
+     71 29.199298      172.20.92.104         192.168.133.252       DNS      111    Standard query 0x0a59 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee
+     72 29.199772      192.168.133.252       172.20.92.104         DNS      351    Standard query response 0x0a59 SRV _ldap._tcp.TTU-Campus._sites.dc._msdcs.intra.ttu.ee SRV 0 100 389 dc3.intra.ttu.ee SRV 0 100 389 dc1.intra.ttu.ee SRV 0 100 389 dc2.intra.ttu.ee A 192.168.133.253 AAAA 2001:bb8:4002:133::253 A 192.168.133.251 AAAA 2001:bb8:4002:133::251 A 192.168.133.252 AAAA 2001:bb8:4002:133::252
+     73 29.200820      172.20.92.104         192.168.133.252       DNS      76     Standard query 0xa458 A dc3.intra.ttu.ee
+     74 29.201246      192.168.133.252       172.20.92.104         DNS      92     Standard query response 0xa458 A dc3.intra.ttu.ee A 192.168.133.253
+     75 30.016222      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=310/13825, ttl=8 (no response found!)
+     76 30.043005      109.105.97.51         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     77 30.044582      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=311/14081, ttl=8 (no response found!)
+     78 30.071358      109.105.97.51         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     79 30.072729      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=312/14337, ttl=8 (no response found!)
+     80 30.099511      109.105.97.51         172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     81 30.101477      172.20.92.104         192.168.133.252       DNS      86     Standard query 0x5485 PTR 51.97.105.109.in-addr.arpa
+     82 30.101857      192.168.133.252       172.20.92.104         DNS      116    Standard query response 0x5485 PTR 51.97.105.109.in-addr.arpa PTR nl-sar.nordu.net
+     83 31.080026      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=313/14593, ttl=9 (no response found!)
+     84 31.194906      109.105.97.139        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     85 31.196436      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=314/14849, ttl=9 (no response found!)
+     86 31.313837      109.105.97.139        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     87 31.315289      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=315/15105, ttl=9 (no response found!)
+     88 31.432519      109.105.97.139        172.20.92.104         ICMP     182    Time-to-live exceeded (Time to live exceeded in transit)
+     89 31.434549      172.20.92.104         192.168.133.252       DNS      87     Standard query 0xbd02 PTR 139.97.105.109.in-addr.arpa
+     90 31.563252      192.168.133.252       172.20.92.104         DNS      117    Standard query response 0xbd02 PTR 139.97.105.109.in-addr.arpa PTR us-man.nordu.net
+     91 32.451225      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=316/15361, ttl=10 (no response found!)
+     92 32.570930      109.105.97.143        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     93 32.572297      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=317/15617, ttl=10 (no response found!)
+     94 32.692081      109.105.97.143        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     95 32.693470      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=318/15873, ttl=10 (no response found!)
+     96 32.813241      109.105.97.143        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+     97 32.814926      172.20.92.104         192.168.133.252       DNS      87     Standard query 0x21f4 PTR 143.97.105.109.in-addr.arpa
+     98 32.859045      192.168.133.252       172.20.92.104         DNS      117    Standard query response 0x21f4 PTR 143.97.105.109.in-addr.arpa PTR us-ash.nordu.net
+     99 33.744454      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=319/16129, ttl=11 (no response found!)
+    100 33.870313      206.126.236.112       172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    101 33.871633      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=320/16385, ttl=11 (no response found!)
+    102 33.991939      206.126.236.112       172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    103 33.993408      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=321/16641, ttl=11 (no response found!)
+    104 34.113643      206.126.236.112       172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    105 34.115497      172.20.92.104         192.168.133.252       DNS      88     Standard query 0x31d3 PTR 112.236.126.206.in-addr.arpa
+    106 34.171731      192.168.133.252       172.20.92.104         DNS      127    Standard query response 0x31d3 PTR 112.236.126.206.in-addr.arpa PTR core1.dca.edgecastcdn.net
+    107 35.057889      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=322/16897, ttl=12 (no response found!)
+    108 35.180655      152.195.64.133        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    109 35.181979      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=323/17153, ttl=12 (no response found!)
+    110 35.304981      152.195.64.133        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    111 35.306475      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=324/17409, ttl=12 (no response found!)
+    112 35.429501      152.195.64.133        172.20.92.104         ICMP     70     Time-to-live exceeded (Time to live exceeded in transit)
+    113 35.431640      172.20.92.104         192.168.133.252       DNS      87     Standard query 0xb424 PTR 133.64.195.152.in-addr.arpa
+    114 35.484964      192.168.133.252       172.20.92.104         DNS      158    Standard query response 0xb424 No such name PTR 133.64.195.152.in-addr.arpa SOA ns1.edgecastcdn.net
+    115 40.873707      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=325/17665, ttl=13 (reply in 116)
+    116 40.993568      93.184.216.34         172.20.92.104         ICMP     106    Echo (ping) reply    id=0x0001, seq=325/17665, ttl=54 (request in 115)
+    117 40.994955      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=326/17921, ttl=13 (reply in 118)
+    118 41.114492      93.184.216.34         172.20.92.104         ICMP     106    Echo (ping) reply    id=0x0001, seq=326/17921, ttl=54 (request in 117)
+    119 41.115844      172.20.92.104         93.184.216.34         ICMP     106    Echo (ping) request  id=0x0001, seq=327/18177, ttl=13 (reply in 120)
+    120 41.235507      93.184.216.34         172.20.92.104         ICMP     106    Echo (ping) reply    id=0x0001, seq=327/18177, ttl=54 (request in 119)
+    121 41.237305      172.20.92.104         192.168.133.252       DNS      86     Standard query 0xd5a6 PTR 34.216.184.93.in-addr.arpa
+    122 41.291057      192.168.133.252       172.20.92.104         DNS      157    Standard query response 0xd5a6 No such name PTR 34.216.184.93.in-addr.arpa SOA ns1.edgecastcdn.net

@@ -1,0 +1,110 @@
+• Mille poolest on operatiivandmete andmebaasid ning andmeaidad ja
+andmavakad erinevad? Kuidas on need andmebaasid andmeaida
+infosüsteemis omavahel seotud?
+
+ Ait on koht, kuhu asjad säilitamiseks ära
+pannakse.
+ Vakk on mugav koht asjade otsimiseks ja
+leidmiseks.
+
+ Andmeaidaks nimetatakse erinevatest
+operatiivandmete andmebaasidest
+(sealhulgas pärandsüsteemidest) ja välistest
+allikatest perioodiliselt uuendatavat
+integreeritud andmebaasi, mille alusel on
+võimalik teostada juhtimisotsuseid.
+ Andmeait luuakse selleks, et pakkuda
+üleorganisatsioonilist ühtlustatud pilti
+kõigist andmetest.
+ Andmeaidas on detailsed andmed (sama
+detailsusaste kui operatiivandmete
+andmebaasides) või mõõdukalt koondatud
+andmed.
+ Andmeaida all peetakse silmas teisest ehk
+sekundaarset andmekogumit, mis koondab
+esmastest (primaarsetest) andmekogudest
+saadud andmeid mingil kindlal eesmärgil.
+Andmeaita võib olla koondatud kas ühest või
+mitmest andmekogust pärit andmed.
+ Andmeaidas võivad andmed olla isikustatud
+või anonüümsed.
+ Arendamine on pikaajaline protsess.
+ Integreeritud andmed erinevatest allikatest, et
+pakkuda tervikpilti organisatsiooni huvitavate
+olemite ning nendevaheliste seoste kohta.
+ Suured andmemahud.
+ Detailsus * Ajaloolised andmed * Palju allikaid = Palju
+andmeid
+ Andmemahtude kasv on väga kiire.
+ Võib olla tuletatud andmeid – kontrollitud liiasus.
+ Eeldatakse, et lähteallikatest tulevad korrektsed
+andmed ja seetõttu ei pöörata erilist tähelepanu
+andmebaasi kitsendustele.
+ Toimuvad keerukad päringud.
+ Suhteliselt palju indekseid, et kiirendada päringuid.
+ Andmeaita tuleb pidevalt andmeid juurde laadida,
+sest andmeallikateks olevad süsteemid "toodavad"
+kogu aeg üha uusi andmeid. Andmeaidas hoitakse
+nii aktuaalseid kui ka ajalooliseid andmeid.
+ Andmeid üldjuhul ei kustutata –
+andmebaasis ka ajaloolised andmed.
+
+
+• Millised on kõige sagedasemad operatsioonid andmeaitades ja
+andmevakkades? (SELECT koondandmete leidmiseks ja INSERT suure
+hulga andmete korraga laadimiseks)
+
+
+• Kuidas toimub andmeaida loomine Bill Inmoni ja kuidas Ralph Kimballi
+käsitluse kohaselt? (Inmon ütleb, et kõigepealt luuakse andmeait, kus
+tabelid suhteliselt kõrge astmeni normaliseeritud ning seejärel luuakse
+andmevakad, kuhu laaditakse andmeid andmeaidast; Kimball ütleb, et
+luuakse andmevakad ja nende ühend moodustab andmeaida).
+
+
+• Millised on andmeaitade põhilised omadused?
+Vastaud üleval
+
+• Mis on ETL (Extract-Transform-Load) protsess? 
+(andmete väljalugemine lähtesüsteemidest, töötlemine-teisendamine-puhastamine,
+ andmeaita laadimine)
+
+
+• Milleks kasutatakse ETL protsessi juures ettevalmistusala? 
+(andmete töötlemiseks, töödeldud andmete kogumiseks, et korraga andmeaita lisada)
+
+
+• Millised on andmeaitade ja andmevakkade andmebaasi disaini
+iseärasused? Mille poolest need disainid erinevad? (andmeaidas kõrge
+tasemeni normaliseeritud tabelid; andmevakas tähtskeemi või lumehelbeskeemi järgi loodud tabelid)
+
+
+• Mis on tähtskeem? (keskel faktitabel, selle ümber dimensioonide tabelid,
+mis panevad sinna välisvõtmed, faktitabelis ja arvulised väärtused, mille
+alusel koondandmeid arvutada)
+
+
+• Mis on lumehelbeskeem? (dimensioonidel omakorda dimensioonid st
+dimensioonide tabelite normaliseerituse astet tõstetakse) Sellises skeemis
+tuleb osata ära tunda faktitabel ja dimensioonide tabelid.
+
+
+• Millises tabelis (dimensioonide/fakti) on tüüpiliselt suurem andmemaht?
+(faktitabelis)
+
+
+• Millised on suurandmete iseloomustamise kriteeriumid (hulk, kiirus,
+varieeruvus) ja milline ei ole (väärtus kasutajale)?
+
+
+• Millistes andmebaasides tuleks kasutada Oracle bitmap indekseid?
+(andmeaidad ja andmevakad)
+
+
+• Millise struktuuriga andmebaas luuakse ankurmodelleerimise kasutamise
+tulemusena? (enamik tabeleid on kuuendal normaalkujul)
+
+
+• Mis on loogiline andmeait (logical data warehouse)?
+ Andmeid ei koondata ühte võrgu sõlme
+kokku, vaid need jäävad andmebaasi kuhu

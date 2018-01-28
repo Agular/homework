@@ -1,0 +1,23 @@
+
+There is 1 interface on the system: 
+
+    Name                   : Wi-Fi
+    Description            : ASUS USB-AC56 802.11ac Wireless USB Adapter
+    GUID                   : c830ccdc-2788-41e1-94f2-469fed8145a6
+    Physical address       : f0:79:59:e8:ba:f1
+    State                  : connected
+    SSID                   : Praks 4 2.4G v6rk47
+    BSSID                  : 08:62:66:8d:17:08
+    Network type           : Infrastructure
+    Radio type             : 802.11g
+    Authentication         : WPA2-Personal
+    Cipher                 : CCMP
+    Connection mode        : Profile
+    Channel                : 1
+    Receive rate (Mbps)    : 54
+    Transmit rate (Mbps)   : 54
+    Signal                 : 100% 
+    Profile                : Praks 4 2.4G v6rk47 
+
+    Hosted network status  : Not available
+

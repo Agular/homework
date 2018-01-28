@@ -1,0 +1,386 @@
+Teema 5
+· Milliseid SQL lauseid kasutatakse õiguste andmiseks (GRANT), rollide
+andmiseks (GRANT), õiguste äravõtmiseks (REVOKE), rollide äravõtmiseks
+(REVOKE)?
+
+
+· Mida tähendab andmete käideldavus?
+
+
+· Euroopa Liidu isikuandmete kaitse üldmääruse eesmärk ja põhimõtted.
+
+
+· Millised isikuandmed on Euroopa Liidu isikuandmete kaitse
+üldmäärusekohaselt eriliigilised ja millised ei ole? (nimi ja isikukood ei ole)
+
+
+· Milline institutsioon kontrollib Eestis isikuandmete kaitse seaduste/määruste
+täitmist? (Andmekaitse Inspektsioon)
+
+
+· Mida tähendab vaikimisi andmekaitse põhimõte?
+
+
+· Mis vahe on minimaalse ja maksimaalse pääsu poliitikal? Millist poliitikat
+rakendab PostgreSQL (üldiselt minimaalse pääsu poliitika kuid mõned
+õigused on vaikimisi kõigil) ja millist Oracle (range minimaalse pääsu
+poliitika)?
+
+
+· Turvalisuse tagamise strateegiad.
+
+
+· Andmete konfidentsiaalsuse tagamise meetodid PostgreSQLis ja Oracles.
+
+
+· Milleks kasutatakse Oracles CREATE PROFILE lauset? Kas/kuidas aitab
+see kaasa turvalisuse parandamisele? (aitab määrata parooli vahetamise
+sagedust)
+
+
+· Millised on räsiväärtuste arvutamiseks mõeldud funktsioonid? (MD5, SHA-1,
+SHA-2 perekond)
+
+
+· Milleks on vaja parooli räsiväärtuse leidmisel kasutada soola? (raskendab
+sõnastikrünnet)
+
+
+· Mis vahe on väärtuse (nt parooli) põhjal räsiväärtuse leidmisel ja väärtuse
+krüpteerimisel? (räsifunktsioon on ühesuunaline – puudub pöördfunktsioon
+algväärtuse leidmiseks; krüpteeritud väärtuse saab võtme abil
+dekrüpteerida)
+
+
+
+· Millise nimega on laiendus, mille abil lisada PostgreSQL andmebaasi
+andmete krüpteerimiseks ja räsiväärtuste leidmiseks mõeldud funktsioonid?
+(pgcrypto)
+
+
+· Millise nimega on Oracle (12c) süsteemi-defineeritud pakett, mis sisaldab
+räsiväärtuste leidmiseks ning andmete krüpteerimiseks mõeldud rutiine?
+(dbms_crypto)
+
+
+· Millise eesliitega peavad algama Oracle 12c andmebaasis üldiste
+(konteinerandmebaasi tasemel loodud) kasutajate ja rollide kasutajanimed?
+(c##)
+
+
+· Milline on põhiline andmete turvalisuse aspekt, mida Oracle 12c
+andmebaasisüsteemis aitab tagada AUDIT lause kasutamine
+(revideeritavus), Oracle Data Guard (käideldavus), Transparent Data
+Redaction ja Label Security (konfidentsiaalsus)?
+
+
+· Kui tabelis on parooli soolatud räsiväärtus, siis kas parooli tugevust saab
+kontrollida CHECK kitsendusega? (ei)
+
+
+· Mida kujutab endast SQL süstimise (SQL injection) rünnak?
+
+
+· Kas SQL süstimise rünnakuga saab rünnata rutiini, mis sisaldab staatilist
+SQLi (ei) või dünaamilist SQLi (jah, sõltub, kuidas see realiseeritud)?
+
+
+· Oletame, et PostgreSQL andmebaasis on kasutaja-defineeritud funktsiooni
+loomisel kasutatud määrangut SECURITY INVOKER või Oracles on
+kasutatud määrangut AUTHID CURRENT_USER. Mis on selle määrangu
+tulemus? Milliseid õiguseid on vaja selliste määrangutega funktsioonide
+käivitamiseks? (funktsiooni käivitamise õigus + õigused kõigi funktsioonis
+sisalduvate tegevuste käivitamiseks)
+
+
+· Oletame, et PostgreSQL andmebaasis on kasutaja-defineeritud funktsiooni
+loomisel kasutatud määrangut SECURITY DEFINER. Mis on selle
+määrangu tulemus? Milliseid õiguseid on vaja selliste määrangutega
+funktsioonide käivitamiseks? (ainult funktsiooni käivitamise õigust)
+
+
+· Kuidas piirata kasutajate juurdepääsu teatud tingimustele vastavatele tabeli
+ridadele? (vaadete, hetktõmmiste ja tabelifunktsioonide abil)
+
+
+· Kas CHECK kitsenduste või SELECT trigerite abil saab piirata, millistele
+tingimustele vastavaid ridu kasutajad tabelis näevad? (ei saa; SELECT
+trigereid pole lisaks olemaski)
+
+
+· Mida tähendab andmete maskimine?
+
+
+· Millise üldistuse saab süsteemi turvalisuse tagamise osas teha Kerckhoffsi
+printsiibist?
+
+
+
+
+
+
+
+Teema 6
+· Mis vahe on INITIALLY DEFERRED ja INITIALLY IMMEDIATE määranguga
+kitsendustel – peab aru saama kuidas kitsendusele ühe või teise sellise
+omaduse määramine mõjutab andmete muutmise stsenaariumi tulemust.
+
+
+· Milliste sõnade põhjal on koostatud transaktsioonide omadusi nimetav
+akronüüm ACID? (Atomicity, Consistency, Isolation, Durability) Mida need
+sõnad tähendavad?
+
+
+· Kuidas algab transaktsioon PostgreSQLis (START TRANSACTION lause)
+ja Oracles (esimene andmekäitluskeele lause peale eelmise transaktsiooni
+lõppu algatab uue transaktsiooni)?
+
+
+· Mida tähendab, et transaktsioonis on salvestuspunkt ning kuidas see
+mõjutab transaktsiooni tulemust? (selleni saab tagasi rullida ja siis tööd
+jätkata)
+
+
+· Millised laused on mõeldud transaktsiooni kinnitamiseks (COMMIT) ja
+tagasirullimiseks (ROLLBACK)?
+
+
+· Kas PostgreSQL ja Oracle võimaldavad koondada andmekirjelduskeele ja
+andmekäitluskeele laused ühte transaktsiooni? (PostgreSQL võimaldab,
+Oracle ei võimalda)
+
+
+· Mis on multiversioon konkurentsjuhtimine ja millised andmebaasisüsteemid,
+seda realiseerivad? (nii PostgreSQL kui ka Oracle realiseerivad)
+
+
+· Kas PostgreSQLis ja Oracles takistab andmete lugemine ühes
+transaktsioonis nende andmete muutmist teises? (ei takista, kuna mõlemad
+andmebaasisüsteemid rakendavad multiversioon konkurentsjuhtimist)
+
+
+· Mis on Write Ahead Logging ja millised andmebaasisüsteemid, seda
+realiseerivad? (nii PostgreSQL kui ka Oracle realiseerivad)
+
+
+· Milleks on vajalik andmeelemendi lukustamine?
+
+
+· Kui andmeelemendil ei ole lukku, siis kas ja millist tüüpi lukke saab
+elemendile panna? (jagatud ja eksklusiivne)
+
+
+· Kui andmeelemendil on jagatud lukk, siis kas ja millist tüüpi lukke saab
+elemendile täiendavalt panna? (jagatud lukk)
+
+
+· Kui andmeelemendil on eksklusiivne lukk, siis kas ja millist tüüpi lukke saab
+elemendile täiendavalt panna? (teisi lukke panna ei saa)
+
+
+· Mida tähendab kahefaasiline lukustamisprotokoll (2PL)?
+
+
+· Milliste operatsioonide paarid on konfliktipõhise serialiseerimise korral
+konfliktsed ja milliste paarid mitte?
+
+
+· Millal vabastatakse PostgreSQLis ja Oracles reale pandud eksklusiivne
+lukk? (transaktsiooni lõppedes)
+
+
+· Mida tähendab Oracles autonoomne transaktsioon?
+
+
+· Milline on SQL standardis ette nähtud transaktsioonide vaikimisi
+isolatsioonitase (SERIALIZABLE) ning milline isolatsioonitase on vaikimisi
+PostgreSQLis ja Oracles (READ COMMITTED)?
+
+
+· Milline SQL standardis kirjeldatud isolatsioonitase tagab kõige suurema
+transaktsioonide isoleerituse? (SERIALIZABLE)
+
+
+· Paralleelselt toimuvate transaktsioonide stsenaariumite tulemus juhul kui
+transaktsioonid kasutavad READ COMMITTED või SERIALIZABLE
+isolatsioonitaset – vaadake materjalides toodud näiteid.
+
+
+· Kas isolatsioonitaseme suurendamine paneb transaktsioone rohkem
+üksteise järgi ootama? (jah)
+
+
+· Kas ja millisel viisil saan PostgreSQLis ja Oracles anda ilmutatud kujul käsu
+rea eksklusiivseks lukustamiseks? (SELECT ... FOR UPDATE)
+
+
+· Kas transaktsioonis toimuvate päringute tulemustes on näha selle sama
+transaktsiooni käigus eelnevalt tehtud muudatused? (jah)
+
+
+· Milleks kasutatakse PostgreSQLis ja Oracles LOCK TABLE lauset?
+
+
+· Mis on kontrollpunkt (checkpoint)? (toimub kõigi muutmälus muudetud
+plokkide kettale kirjutamine)
+
+
+· Millised transaktsioonid tuleb with undo/with redo tüüpi tehnika kasutamisel
+andmebaasi taastamise käigus uuesti läbi viia ja milliseid pole vaja uuesti
+läbi viia? (enne kontrollpunkti lõppenuid pole vaja uuesti läbi viia)
+
+
+· Mis on tupik, kuidas seda lahendada ning kuidas sellesse sattumist vältida?
+
+
+· Mis on (rakenduste arendajate võetav) optimistlik lähenemine andmete
+lukustamisele? (ei võeta ennetavaid meetmeid andmete samaaegse
+muutmise probleemide vältimiseks)
+
+
+· Kui rakendus kasutab optimistlikku lähenemist ridade lukustamisele ning kui
+kaks kasutajat muudavad sama rida samal ajal, siis kelle muudatus
+salvestatakse? (ersimesena salvestaja)
+
+
+· Mida kujutavad endas optimistlik ja pessimistlik lähenemine
+SQL-andmebaasi tabelis ridade samaaegsele muutmisele? (vt ülesanne 8)
+
+
+
+
+Teema 7
+· Andmekäitluskeele lause täitmisplaani koostamise sammud, nende
+sammude järjekord ja igalt sammult oodatav tulemus.
+
+
+· Milline on heuristiline meetod loogilise täitmisplaani optimeerimiseks? (viia
+andmete hulka piiravad unaarsed operatsioonid – piirang ja projektsioon –
+läbi enne ühendamise operatsiooni)
+
+
+· Kes või mis koostab andmekäitluskeele lausete täitmisplaane?
+(andmebaasisüsteem)
+
+
+· Milleks läheb täitmisplaani vaja? (kirjeldab protseduuri, mida täites jõuab
+andmebaasisüsteem lausega soovitud tulemuseni)
+
+
+· Millised on ühendamisoperatsiooni läbiviimiseks kasutatavad algoritmid?
+Millistel nendest puudub ettevalmistav faas? (nested loop join)
+
+
+· Kas algoritmi valikust sõltuvad lõpuks leitavad ja kasutajale esitatavad
+andmed? (ei sõltu)
+
+
+· Mida kujutab endast andmekäitluskeele lause semantiline teisendamine?
+
+
+· Mida kujutab endast tabeli elimineerimise teisendus?
+
+
+· Millistes andmebaasisüsteemides saab andmekäitluskeele kirjutamisel
+kasutada vihjeid (Oracles saab ja PostgreSQLis ei saa), milleks vihjeid
+kasutatakse ning kuidas neid kirja pannakse? (nagu kommentaar SELECT
+klauslis)
+
+
+· Mis vahe on andmete loogilisel lugemisel (lugemine muutmälust) ja füüsilisel
+lugemisel (lugemine kettalt)? Kuidas mõjutab lugemiste arv operatsioonide
+töökiirust? (mida vähem lugemisi, seda parem operatsioonide töökiirusele)
+
+
+· Mida tähendab maksumuspõhine optimeerimine?
+
+
+· Mida kujutab endast Oracle poolt liitindeksite korral kasutatav skip-scan
+operatsioon?
+
+
+· Kas tabelite ühendamisoperatsiooni sisaldava päringu lõpptulemusena
+leitavad ja kasutajale esitatavad andmed sõltuvad sellest, millist sisemise
+taseme algoritmi (nested loop join, merge join, hash join) kasutati
+andmebaasisüsteemi poolt ühendamisoperatsiooni läbiviimiseks? (ei, mitte
+kunagi)
+
+
+· Mis on B-puu indeksi sõlmedeks?
+
+
+· Milliste veergude korral on kõige otstarbekam neid B-puu indeksi abil
+indekseerida? (palju erinevaid väärtuseid)
+
+
+· Millises olukorras peaks andmebaasisüsteem eelistama päringu täitmiseks
+indeksi kasutamise asemel tabeli täielikku läbiskaneerimist? (tabelis väga
+vähe ridu; tabelis väga palju ridu ja päring peab leidma suure osa nendest
+ridadest)
+
+
+· Mis võib olla põhjuseks, et andmebaasisüsteem ei kasuta indeksit?
+
+
+· Kas sama ülesande lahendamiseks mõeldud erinevatel SQL lausetel, mis
+annavad loogiliselt samaväärse tulemuse, on samas andmebaasisüsteemis
+(PostgreSQL ja Oracle näitel) alati ühesugune füüsiline täitmisplaan? (ei)
+
+
+· Mis peab olema andmebaasis tehtud, et tabelite elimineerimise teisendusi
+toetaval andmebaasisüsteemil oleks võimalik neid teisendusi läbi viia?
+(deklareeritud välisvõtmed)
+
+
+
+
+
+
+Järgnevad küsimused käivad ka teema 7 alla, kuid neile leiab vastuse eeskätt
+harjutustunni slaidikomplektist SQL_DML_keele_lausete_taitmisplaanid.
+
+
+· Millise ühendamisoperatsiooni algoritmi valimiseni viib Oracles vihje
+FIRST_ROWS kasutamine? (nested loop join)
+
+
+· Millise vahendiga saab Oracles SQL*Plus programmis vaadata
+andmekäitluskeele lausete täitmisplaane ja statistikat (AUTOTRACE,
+EXPLAIN PLAN) ja millise lause abil saab täitmisplaane vaadata
+PostgreSQLis (EXPLAIN)?
+
+
+· Mis vahe on Oracles Autotrace ja EXPLAIN lause kasutamisel? (Autotrace
+korral lause ka täidetakse, EXPLAIN korral koostatakse ainult plaan)
+
+
+· Milline info on Oracle trace failis? (tegelikud täitmisplaanid)
+
+
+· Mida tähendavad Oracle AUTOTRACE statistika aruandes recursive calls,
+physical reads, consistent gets, db block gets näitajad?
+
+
+· Milleks on PostgreSQLis (ANALYZE) ja Oracles (dbms_stats paketi
+protseduuri käivitamine) laused/käsud andmebaasi statistika kogumiseks?
+Milleks kogutud statistikat kasutatakse?
+
+
+· Millise nimega meetodeid kasutab Oracle indeksi põhjal andmete
+otsimiseks?
+
+
+· Mida kujutab endast index unique scan operatsioon? Kui mitu rida võidakse
+selle abil maksimaalselt leida? (üks)
+
+
+· Mida kujutab endast index range scan operatsioon? Milliseid plokke selle
+käigus loetakse?
+
+
+· Peab saama aru etteantud täitmisplaanidest (täitmisplaanid on samad, mis
+slaidikomplektis SQL_DML_keele_lausete_taitmisplaanid).
+
+
+· SQL_DML_keele_lausete_taitmisplaanid slaidikomplekti põhjal – milline on
+analoogia erinevate raamatu lugemise stsenaariumite

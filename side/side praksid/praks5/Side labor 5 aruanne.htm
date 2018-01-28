@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+       <title>Side labor 5 aruanne</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.kys {font: normal normal normal medium arial,sans-serif; }
+</style>
+</head>
+<body>
+<h1>Side labor 5 Juurdepääs arvutivõrku aruanne</h1>
+<table cellspacing="0" cellpadding="4" border="1">
+<tbody><tr>
+<td>Töö tegija nimi:</td>
+</tr>
+<tr>
+<td>Ragnar Luga</td>
+</tr>
+<tr>
+<td>Töö tegemise kuupäev: Mon Nov  6 11:22:27 2017</td>
+</tr>
+</tbody></table>
+<p>
+
+
+</p><h2>4.2 Arvuti IP aadress</h2>
+<p>A. Enda arvuti MAC aadress käsurealt vaadates: 
+D4-C9-EF-EE-7D-A0
+</p><p>B. Enda arvuti IP aadress käsurealt vaadates:
+172.20.92.104
+<br>
+Enda arvuti IPv6 aadress käsurealt vaadates: 
+fe80::a9b5:5e72:5126:7243%14
+</p><p>C. Oma võrgu marsruuteri IP aadress (Default Gateway):
+172.20.92.254
+</p><p>D. Nimeserverite IP aadressid (DNS servers):
+192.168.133.252 192.168.133.253 192.168.133.251
+</p><p>E. Veebilehel näidatud enda arvuti IP aadress:
+193.40.250.213
+</p><p>F. Mis on võimalike erinevuste põhjuseks?
+TTÜ privaatvõrk kasutab NAT (Network Address Translation). Selle abil 
+vahetab ruuter meie arvutist saadetud paketti saatja IP aadressi enda 
+omaga. Sama toimub ka vastupidi: kui saadetakse pakett meie arvutile, 
+siis esmalt on selles pakettis vastuvõtjaks ruuter. Ruuter hoiab eraldi 
+mälus meie aadressi ning kuidas ta on seda asendanud. Paketi saabumisel 
+vahetab ta paketis vastuvõtja IP aadressi meie omaks.
+</p>
+
+<h2>4.3 Ping (protokollid ARP, ICMP, UDP, DNS)</h2>
+<p>Salvestada käsurea aken koos ping tulemustega. 
+</p><p>A. Mida programm ping teeb ja mida tulemus näitab?
+Ping saadab võrku paketti meie poolt kirjutatud adressaadile ning loodab
+ saada adressaadilt vastuse. Pingi lihtsaim olemus on testida, kas kahe 
+arvuti vahel eksisteerib ühendus. Ping tulemus (ping statistics) näitab,
+ mitu paketti saadeti kokku ning mitmele neist saadi vastus. Samuti 
+näidatakse, mitu paketti läks kaduma s.t. vastust ei saadud sellele. 
+Samuti näidatakse ära ka väikseim, suurim ja keskmine RTT. RTT on aeg, 
+mis kulus saadetava paketti jõudmiseks adressaadini ning vastuse 
+saabumiseks adressaadilt. 
+</p><p>
+</p><h4>ARP </h4>
+<p>B. Milliste protokollide päiseid ARP paketid sisaldavad?
+Ethernet, ARP
+</p><p>C. Millisele aadressile saadetakse ARP päring?
+ff:ff:ff:ff:ff:ff
+</p><p>D. Milliselt aadressilt tuleb ARP vastus?
+00:1c:c0:66:55:96
+</p><p>E. Milline on ARP pakettide sisu?
+Esimesena on kirjas hardware type, mis näitab ära, millist 
+internetiühendust on kasutatud. Meie puhul on see Ethernet, kaabli teel.
+ Järgmisena on protokollitüüp, mis on IPv4. Siis on kaks välja, kus on 
+vastavalt hardware type'i ja protokollitüübi väljade pikkused baitides. 
+Järgmisena on opcode, mis näitab ARP päringu tüüpi. Seejärel tulevad 
+saatja mac ja ip aadress ning vastuvõtja mac ja ip aadress.
+</p><p>Lisada ekraanipilt Wiresharki keskmisest aknast, kus näha dekodeeritud kujul ARP päringu paketis EthernetII ja ARP osa 
+ning teine ekraanipilt Wiresharki keskmisest aknast, kus näha ARP vastuse paketis dekodeeritud EthernetII ja ARP osa.
+</p><p>
+</p><h4>IP</h4>
+<p>F. Milline väärtus on väljal Flags ja millist informatsiooni see 
+annab?
+Flags väljal on väärtus 0x00. See on kolmebitiline väli, kus esimene 
+bitt peab olema alati null. Teine bitt näitab, kas antud paketti ei tohi
+ fragmenteerida või tohib. Väärtuse 0 sellel kohal(meie puhul samuti) 
+tähendab, et seda paketti tohib fragmenteerida.
+</p><p>G. Milline väärtus on väljal Header Length ja millist informatsiooni see annab?
+TEHA
+</p><p>H. Milline väärtus on väljal Total Length ja millist informatsiooni see annab?
+TEHA
+</p><p>I. Milline väärtus on väljal Protocol ja millist informatsiooni see annab?
+TEHA
+</p><p>Lisada ekraanipilt ühest paketist (ping vastus) Wiresharki 
+keskmises aknas, kus IP osa on tervenisti lahti koos välja Flags sisuga.
+</p><p>
+</p><h4>ICMP</h4>
+<p>J. Milliste protokollide päiseid ICMP paketid sisaldavad?
+TEHA
+</p><p>K. Millisele aadressile saadetakse ping päring (MAC aadress ja IP aadress)?
+TEHA
+</p><p>L. Milliselt aadressilt tuleb vastus (MAC aadress ja IP aadress)?
+TEHA
+</p><p>M. Mis on päringu ja vastuse Data osas (kirjeldada oma sõnadega andmete kogust ja sisu)?
+TEHA
+</p><p>Lisada ekraanipildid ping päringu ja ping vastuse Wiresharki keskmisest aknast, kus dekodeeritud ICMP paketi IP ja ICMP osa.
+</p><p>
+</p><p>N. Millisele aadressile saadetakse ping päring (MAC aadress ja IP aadress)?
+TEHA
+</p><p>O. Milliselt aadressilt tuleb vastus (MAC aadress ja IP aadress)?
+TEHA
+</p><p>Lisada ekraanipilt ping päringu ja ping vastuse pakettidest Wiresharki keskmises aknas, (kus kõik plussid kinni).
+</p><p>
+</p><h4>UDP, DNS</h4>
+<p>P. Milliste protokollide päiseid DNS paketid sisaldavad?
+TEHA
+</p><p>R. Kui pikk on UDP päis?
+TEHA
+</p><p>S. Mis sisaldub UDP päises?
+TEHA
+</p><p>T. Milline on UDP pordi number DNS jaoks (serveri port)?
+TEHA
+</p><p>U. Mis sisaldub DNS osas?
+TEHA
+</p><p>Lisada ekraanipildid DNS päringu ja vastuse pakettidest Wiresharki keskmises aknas, kus UDP ja DNS osad on lahti.
+
+
+</p><h3>4.4 Traceroute</h3>
+<p>Lisada ekraanipilt käsurealt olevatest traceroute tulemustest.
+</p><p>A. Mis on traceroute tulemuseks üldiselt?
+TEHA
+</p><p>B. Mitme marsruuteri kaugusel meie võrgust asub www.example.com?
+TEHA
+</p><p>C. Milliseid protokolle kasutatakse tracert käsu täitmiseks?
+
+</p><p>D. Milline paketi eluaja (Time To Live, TTL) väärtus on kõikidel ICMP päringu pakettidel ning vastuse pakettidel?
+TEHA
+</p><p>E. Mida TTL näitab?
+TEHA
+</p><p>Lisada Wiresharkist salvestatud pakettide faili sisu.
+
+
+
+</p><h2>4.5 WWW (protokollid TCP, HTTP)</h2>
+<p>Lisada Wiresharki ülemisest aknast ekraanipilt.
+</p><p>Lisada ekraanipilt külastatud veebilehest. 
+</p><p>Lisada salvestatud lehe lähtekood.
+</p><h4>TCP</h4>
+<p>A. Milliste protokollide päiseid saadud paketid sisaldavad?
+TEHA
+</p><p>B. Kui pikk on TCP päis?
+TEHA
+</p><p>C. Millised väärtused on väljadel Sequence Number ja Acknowledgement number ja millist informatsiooni see annab?
+TEHA
+</p><p>D. Kuidas TCP ühendust alustatakse (3 esimest paketti - milline arvuti millisele saadab ja millised TCP lipud on aktiveeritud)?
+TEHA
+</p><p>E. Kuidas TCP ühendust lõpetatakse (4 viimast paketti -  milline arvuti millisele saadab ja millised TCP lipud on aktiveeritud)?
+TEHA
+</p><p>Lisada Wiresharki ekraanipilt ühest paketist, kus keskmises aknas on TCP osa lahti.
+</p><p>
+</p><h4>HTTP</h4>
+<p>F. Milline HTTP päring saadetakse (järgmine pakett, mille Teie arvuti saatis pärast TCP ühenduse loomist)?
+TEHA
+</p><p>G. Milline tuleb HTTP vastus sellele päringule?
+TEHA
+</p><p>H. Milline on TCP pordi number HTTP jaoks (serveri port)?
+TEHA
+</p><p>Lisada ekraanipilt päringu paketist Wiresharki akna keskmine osa,
+ kus HTTP osa on lahti ning vastuse paketist Wiresharki akna keskmine 
+osa, kus HTTP osa on lahti.
+
+
+</p><h2>4.6 Individuaalülesanne</h2>
+<h3>Lähteandmete kogumine</h3>
+<p>Lisada ekraanipilt ping käsureast ja tulemustest.
+</p><table cellspacing="0" cellpadding="4" border="1">
+<tbody><tr>
+<td>Üliõpilaskood</td>
+<td>155207</td>
+</tr>
+<tr>
+<td>Ping käsurida: </td>
+<td>ping www.example.com -n 10 -l 2000</td>
+</tr>
+<tr>
+<td>Keskmine RTT</td>
+<td></td>
+</tr>
+<tr><td colspan="3">Wiresharkist leida:</td></tr>
+<tr>
+<td>mitmes fragmendis etteantud pikkusega üks ping päring saadeti.
+</td><td></td>
+</tr>
+<tr>
+<td>ühe päringu andmete (data) osa pikkus (kõikides fragmentides kokku)
+</td><td></td>
+</tr>
+<tr>
+<td>EthernetII päise pikkus.</td>
+<td></td>
+</tr>
+<tr>
+<td>IP päise pikkus.</td>
+<td></td>
+</tr>
+<tr>
+<td>ICMP päise pikkus.</td>
+<td></td>
+</tr></tbody></table>
+
+<p>
+</p><p>Lisada Wiresharki ekraanipilt, kus peal ülemises aknas üks päring
+ koos fragmentidega ja üks vastus fragmentidega (iga pakett on üks 
+rida).
+</p><p>
+LISADA ÜLESANDE LAHENDUSKÄIK JA TULEMUSED!!
+</p><p>
+
+</p><h2>Kokkuvõte ja järeldused</h2>
+<p>KIRJUTA KOKKUVÕTE JA JÄRELDUSED SIIA!</p>
+
+
+</body></html>

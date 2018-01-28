@@ -1,0 +1,212 @@
+Millises süsteemiarenduse etapis/faasis tehtud valikud omavad kõige
+suuremat mõju süsteemi (sealhulgas andmebaasis toimuvate
+operatsioonide) töökiirusele? (disain)
+
+
+• Millised on meetmed, mida saab erinevates süsteemiarenduse etappides
+operatsioonide töökiiruse parandamiseks ette võtta?
+
+
+DISAIN
+ Optimeerida andmestruktuuride disaini
+(denormaliseerimine – ETTEVAATUST!).
+ Kasutada maksimaalselt andmebaasisüsteemi
+sisseehitatud funktsionaalsusi – nt Oracles
+auditeerimine, andmemuudatuste ajaloo
+säilitamine (Workspace Manager).
+Kasutada maksimaalselt ära
+andmebaasisüsteemi poolt pakutavaid
+võimalusi:
+ andmebaasi programmeerimiseks
+(nt arvujada generaatorid, andmebaasiserveris
+talletatud rutiinid),
+ operatsioonide töökiiruse parandamiseks
+(nt tabelite sektsioonideks jagamine ja klastrisse
+koondamine).
+ Projekteerida indeksite kasutus.
+ Projekteerida hetktõmmiste e
+materialiseeritud vaadete kasutus.
+ Viia võrgu koormus minimaalseks
+(andmebaasiserveris talletatud rutiinid).
+ Protseduuride algoritmide häälestamine.
+
+
+
+
+
+• Mida tähendab füüsiline andmete sõltumatus?
+Andmebaasi sisemises skeemis tehtud muudatus ei
+mõjuta seda kuidas paistab kasutajatele andmebaasi
+kontseptuaalne skeem.
+ Selle tulemusena olemasolevad rakendused ja
+päringud töötavad endiselt (ainult et loodetavasti
+kiiremini).
+
+
+
+• Millised on andmebaasiserveris talletatud rutiinide (funktsioonide ja
+protseduuride) loomise eelised?
+Andmebaasi kasutava rakenduste töökiiruse
+tõstmise huvides on kasulik koondada
+maksimaalne osa andmete kasutamisega
+seotud programmikoodist
+andmebaasiserveris talletatud rutiinidesse.
+ Protseduuridesse võiks koondada
+andmetöötlusoperatsioonid.
+ Protseduurid võiks luua
+andmebaasioperatsioonide lepingute baasil.
+ Samuti võib andmebaasiserveris luua
+funktsioone, mida saab kasutada
+andmetöötlusoperatsioonides.
+ Rutiini käivitamiseks rakendusest kantakse
+üle võrgu vaid üks käsk.
+ Täidetakse serverarvutis, mis tüüpiliselt
+kliendi arvutist palju võimsam.
+ Rutiin on serveris kompileeritud kujul.
+SQL laused koonduvad ühte kohta.
+ Lihtsustab täienduste ja paranduste
+sisseviimist.
+ Sarnase koodi koondamine parandab
+taaskasutuse võimalusi.
+ Võimaldab kasutaja eest peita muutuseid
+andmebaasi struktuuris.
+
+
+
+
+• Milleks kasutatakse Oracles pakette? (andmebaasiserveris talletatud rutiinide grupeerimiseks)
+
+
+• Millised on kaks HEA disaini printsiipi pakettide (nagu neid saab näiteks
+luua andmebaasisüsteemis Oracle) loomiseks ja neile vastutuste
+jagamiseks? Tegemist on üldiste hea tarkvara disaini printsiipidega. (madal sõltuvus, kõrge kokkukuuluvus)
+
+
+• Kuidas mõjutavad PL/SQL funktsioonide väljakutsed andmekäitluskeele
+lausetest nende lausete töökiirust? (mõjuvad halvasti – suureneb kontekstkommutatsioon ja töökiirus väheneb)
+
+
+• Andmebaasisüsteemi poolt loetavate plokkide hulga mõju operatsioonide
+töökiirusele. (mida rohkem on vaja plokke lugeda (nii kettalt kui muutmälust), seda rohkem võtavad operatsioonid aega)
+
+
+• Erinevad tabelitega seotud parameetrid – fillfactor (PostgreSQL), pctfree
+(Oracle), pctused (Oracle) jne. Millises andmebaasisüsteemis saab neid
+kasutada ja milleks need parameetrid on mõeldud? Kuidas mõjutab
+pctfree/fillfactor parameetri suurendamine/vähendamine ridade migreerimise
+tõenäosust?
+
+fillfactor  - määrab, kui mitu protsenti plokist peab olema täidetud, et sinna ei saaks enam lisada INSERT operatsiooniga uusi ridu. vaikimisi 100, postgresql
+
+pctfree - määrab, mitu % ploki kogumahust võib veel olla vaba, kui vastav plokk kuulutatakse täidetuks ja sellesse ei lubata uusi ridu lisada. vaikimsi 10
+
+pctused - määrab, mitu % ploki kogumahust on veel täidetud, kui plokk kuulutatakse uuesti vaba olevaks ja lubatakse sellesse uusi ridu lisada. vaikimisi 40
+
+ PCTFREE väike:
+ salvestusruumi kokkuhoid – plokk
+pakitakse tihedalt täis,
+ tabeli/indeksi täielikul läbiskaneerimisel
+tuleb lugeda vähem plokke,
+ suurem ridade migreerumise tõenäosus.
+
+ PCTFREE suur:
+ salvestusruumi raiskamine – plokis
+palju vaba ruumi,
+ tabeli/indeksi täielikul läbiskaneerimisel
+tuleb lugeda rohkem plokke,
+ väiksem ridade migreerumise
+tõenäosus.
+
+
+• Mida pean Oracles (indeks-organiseeritud tabel) ja PostgreSQLis
+(CLUSTER lause) tegema kui tahan tabeli ridu andmebaasi sisemisel
+tasemel sorteerida?
+	
+
+• Millal luuakse PostgreSQL ja Oracle poolt indekseid automaatselt?
+(PRIMARY KEY ja UNIQUE kitsenduste alusel) Seoses sellega tuleb
+jälgida, et ise mitte luua indekseid, mis dubleerivad automaatselt loodud
+indekseid.
+
+
+• Kas PostgreSQLis ja Oracles luuakse välisvõtme deklareerimisel
+välisvõtmele automaatselt indeks? (ei)
+
+
+• Millistes andmebaasides annab bitmap indeksi kasutamine kõige suurema efekti? (andmeaidad ja andmevakad)
+
+
+• Milline tabel on PostgreSQL andmebaasis kõige parem kandidaat, et selle
+korral vähendada fillfactor parameetri vaikimisi väärtust? (palju UPDATE
+lauseid, mis suurendavad ridade andmemahtu)
+
+
+• Mida tähendab andmete veerupõhine salvestamine SQL-andmebaasides?
+(andmefailis on igas tabeliplokis salvestatud andmed täpselt ühest veerust)
+
+
+• Millist andmekäitlusoperatsiooni teeb andmete veerupõhine salvestamine
+SQL-andmebaasides võrreldes reapõhise salvestamisega kiiremaks?
+(andmete otsimine tabeli veergude väikesest alamhulgast, kuid suurest hulgast ridadest)
+
+
+• Mida kujutab endast Shared Nothing Partitioning arhitektuur?
+
+Igal serverarvutil (serveril)
+oma andmed.
+ Serverid suhtlevad kiire
+arvutivõrgu vahendusel.
+ Koordinaator võtab vastu
+päringu, edastab teistele
+serveritele.
+ Iga server leiab tulemuse oma
+andmete põhjal.
+ Tulemused edastatakse
+koordinaatorile, mis paneb
+nendest kokku lõpptulemuse.
+ Andmete salvestamisel leitakse
+nende asukoht (server)
+räsifunktsiooni ja
+vastavustabeli abil.
+
+
+• Mida tähendab hard parse Oracle andmebaaside kontekstis? Kuidas selle
+hulk mõjutab operatsioonide töökiirust? (mida vähem, seda parem töökiirusele)
+
+lause süntaktiline ja semantiline analüüs, lause täitmisplaani koostamine ja optimeerimine ning täitmisplaani jagatud puhvrisse laadimine.
+
+
+• Mida tähendab bind variables Oracle andmebaaside kontekstis? Kuidas
+nende kasutamine või mittekasutamine mõjutab operatsioonide töökiirust?
+(kasutamine aitab parandada töökiirust)
+Käivitades protseduuri korduvalt, saab andmebaasisüsteem taaskasutada lause täitmisplaani
+
+
+• Mis on andmesiire? Mis järjekorras andmeid üle kantakse? (kõigepealt staatilisemad andmed ja siis dünaamilisemad andmed)
+Kui andmebaas ei teki tühjale kohale, siis
+tuleb uude andmebaasi kanda andmed
+vana(de)st andmebaasi(de)st.
+ Toimub ülemineku käigus.
+ Kontseptuaalsed andmemudelid aitavad aru
+saada, mis on andmete tähendus vanas ja
+uues baasis.
+ Järgnev käsitlus SQL-andmebaaside kohta.
+
+
+• Mis vahe on loogilisel ja füüsilisel varukoopial? (esimene sisaldab andmebaasikeele lauseid, teine on koopia failidest)
+
+
+• Andmebaasi varukoopiate tegemine PostgreSQLis ja Oracles. Millises
+andmebaasisüsteemis ning millist tüüpi varukoopia tegemiseks kasutatakse
+pg_dump (PostgreSQL, loogiline varukoopia) ja RMAN e Recovery
+Manager (Oracle, füüsiline varukoopia) programme?
+
+
+• Milline on kõige olulisem dokument, mille alusel leitakse
+andmebaasiserveris talletatud rutiinid (protseduurid ja funktsioonid), mis
+tuleks andmebaasis luua? (andmebaasioperatsioonide lepingud)
+
+
+• Milline väärtus tuleb määrata PostgreSQL tabeli korral parameetrile
+FILLFACTOR, et tulemus oleks samaväärne Oracle tabeli parameetri
+PCTFREE vaikimisi väärtusega? (90)

@@ -1,0 +1,12 @@
+linna nimesid võib olla input.txt failis lõpmatu arv
+
+väljund linnanimi.txt
+
+
+linna nimi
+linna koordinaadid
+iga ennustatud päeva kohta (kolm esimest) max temp ja min temp
+hetke ilma temperatuur
+
+lisa juurde testid, mis mockivad välise sõltuvuse APId
+lisa juurde testid, mis mockivad failist lugemise ja kirjutamise

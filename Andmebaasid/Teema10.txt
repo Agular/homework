@@ -1,0 +1,108 @@
+Milline SQLi mõiste vastab SQL hetkel viimase standardi versiooni
+nägemuses objektorienteeritud mõistele klass? (tabel)
+
+
+• Milliseid andmebaasiobjekte saab/ei saa SQL hetkel viimase standardi
+versiooni nägemuses luua pärimise kaudu? 
+(saab luua andmetüüpe, tabeleid; ei saa luua andmebaasiserveris talletatud rutiine)
+
+
+• Mis on pärimine laiendamise ja pärimine kitsenduste teel?
+Hoone eksemplari ei saa esitada
+ainult kinnisvaraobjekti
+atribuutide väärtustamise ja
+seoste loomise kaudu.
+
+Suure kinnisvaraobjekti eksemplari
+saab esitada ainult kinnisvaraobjekti
+atribuutide väärtustamise ja seoste
+loomise kaudu.
+
+
+• Millist pärimise mudelit saab SQLi hetkel viimase standardi versiooni
+nägemuses SQLis kasutada? (pärimine laiendamise teel)
+
+
+• Mis on andmetüüp? (nime omav lõplik väärtuste hulk)
+
+
+• Kas SQLis on tüüp ja domeen sama asi? (ei ole)
+
+
+• Mis iseloomustab objekt-relatsioonilisi SQL andmebaasisüsteeme?
+(võimalus kasutajatel luua uusi tüüpe e andmetüüpe ning nende tüüpidega
+seotud operaatoreid, säilitades relatsioonilise mudeli ning deklaratiivse
+andmebaasikeele)
+
+
+• Millisest SQL standardi versioonist alates on SQL objekt-relatsiooniline
+andmebaasikeel? (SQL:1999)
+
+
+• Kas hetkel kehtiv SQL standard nõuab, et SQL-andmebaasisüsteem peab
+realiseerima kõike SQL standardis kirja pandut? (ei)
+
+
+• Millist lauset hetkel kehtiv SQL standard ei kirjelda (nt CREATE USER,
+CREATE DATABASE, CREATE INDEX, CREATE MATERIALIZED VIEW)
+ja millist kirjeldab (nt CREATE DOMAIN, CREATE TYPE, CREATE
+ASSERTION)?
+
+
+• Mis on Distinct tüüp ja kuidas seda luuakse? (süsteemi-defineeritud tüübi
+või kollektsiooni tüübi põhjal) 
+
+
+• Millise tüübi põhjal luuakse tüübitud tabel? (struktureeritud tüüp)
+
+
+• Kas SQL lubab tüüpide defineerimisel kasutada deklaratiivseid kitsendusi?
+(ei luba)
+
+
+• Mida ei ole SQL standardi kohaselt võimalik kasutaja-defineeritud
+struktureeritud tüübi loomise lauses kirjeldada? (deklaratiivne CHECK
+kitsendus)
+
+
+• Mida võimaldab objekt-relatsiooniline andmebaasisüsteem (SQL standardi
+mõttes) luua üksteise põhjal kasutades pärimist (inheritance)? (andmetüüp)
+
+
+• Mis on tüübikonstruktor? (operaator, mis genereerib tüüpe)
+
+
+• Milliseid tüübikonstruktoreid näeb ette SQL:2011? (MULTISET, ARRAY, ROW, REF)
+
+
+• Mis vahe on multihulgal ja massiivil? (massiivis olevad väärtused on
+järjestatud, multihulgas ei ole)
+
+
+• Mida tähendab tugev tüüpimine? (väärtusega saab teha vaid neid
+operatsioone, mida andmebaasi programmeerija on väärtuse tüübi jaoks
+ette näinud) Kas domeenid toetavad tugevat tüüpimist? (ei toeta) Kas
+loendtüübid toetavad tugevat tüüpimist? (jah)
+
+
+• Kas PostgreSQL (10) on objekt-relatsiooniline andmebaasisüsteem? (jah)
+
+
+• Kas Oracle (12c) on objekt-relatsiooniline andmebaasisüsteem? (jah)
+
+
+• Milliseid objekt-relatsioonilisusest tulenevaid võimalusi saab/ei saa
+PostgreSQL 10 andmebaasis kasutada? (näiteks ei saa kasutada REF ja MULTISET tüübikonstruktoreid)
+
+
+• Milliseid tüüpe saab/ei saa kasutada PostgreSQLis veeru tüübina? (nt saab
+kasutada ARRAY ja ROW tüübigeneraatorit, ei saa kasutada MULTISET
+tüübigeneraatorit)
+
+
+• Kas ja millisel viisil saab PostgreSQLis kasutada tabelite vahelist pärimist?
+(tabelite vaheline pärimine võimalik kasutades INHERITS klauslit)
+
+
+• Mida tähendab "WITH (OIDS)" määrang PostgreSQL tabeli loomise lauses?
+(tabelis on peidetud veerg, kus on süsteemi genereeritud täisarvud)

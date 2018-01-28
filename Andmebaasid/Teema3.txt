@@ -1,0 +1,149 @@
+Mida tähendavad Oracle 11g ja Oracle 12c tähed g ja c? (grid, cloud)
+
+• Mis on Oracle mõistes andmebaas ja eksemplar?
+
+Andmebaas on kogum kettale (kõvaketas,
+võib ka olla irdketas; kettaid võib olla mitu)
+salvestatud füüsilisi faile.
+
+Eksemplar on arvutis töötavate protsesside
+kogum ja nende poolt kasutatav muutmälu
+piirkond.
+
+
+• Mida tähendab Oracle allüürnike (multitenant) arhitektuur?
+
+Allüürnike
+(multitenant)
+arhitektuur – konteinerandmebaasis alamandmebaasid.
+Võimaldab vähendada serverite ja serverarvutite hulka.
+Aitab saavutada kulude kokkuhoidu
+
+
+• Kuidas on Oracles seotud kasutajad ja skeemid? (1:1 vastavus)
+
+
+• Milline on minimaalne andmete lugemise/kirjutamise ühik (Oracle)
+andmebaasi sisemisel tasemel? (plokk)
+
+
+• Mis on rea migreerumine plokist ja kuidas see mõjub andmebaasis
+toimuvate operatsioonide töökiirusele? (halvasti mõjub)
+Rea migreerumine – rida muutub oma eluea jooksul nii suureks, et ei mahu esialgsesse plokki ära.
+Teises plokis on vaba ruumi ja sinna see mahub.
+
+• Kuidas on Oracle andmebaasis seotud tabelid ja andmebaasi plokid?
+
+
+• Kuidas on omavahel seotud plokid, ekstendid, segmendid?
+
+Ekstent on kogum ilma katkestusteta loogiliselt
+üksteise järel asuvaid plokke.
+
+Segment on ekstentide kogum mingi kontseptuaalse
+(nt baastabel) või sisemise taseme struktuuri (nt indeks) salvestamiseks.
+
+Segmenti suurendatakse
+ekstentide kaupa.
+
+• Mida tähendab Write Ahead Logging?
+Andmemuudatused tehakse kõigepealt muutmälus.
+ Öeldakse, et mälus olevad plokid, milles olevaid andmeid muudeti, muutusid räpaseks (dirty).
+ Kõik andmemuudatused logitakse.
+ Logi kirjutatakse pidevalt kettale – logifailidesse.
+ Enne andmemuudatuse kirjutamist kettale andmefaili peab muudatuse logi olema kettale salvestatud.
+ Ploki kettale kirjutamine ei pea toimuma kohe peale muutmist
+(kulukas), vaid tänu logi olemasolule võib seda teha hiljem!
+
+• Mis vahe on Oracle serveriprotsessidel ja taustprotsessidel?
+
+Taustprotsessid aitavad andmebaasi korras hoida ning likvideerida probleeme, hallata ressursse, arhiveerimine ja lock.
+Serveriprotsessid - Need haldavad ühenduse loonud kasutaja protsesside teenindusnõudeid
+
+
+• Milleks kasutatakse Oracle poolt rollback/undo segmente?
+
+Võimaldab andmemuudatuse tagasi rullida
+(taastada muudatuse eelne olukord).
+ Tagab paralleelselt käivitatud transaktsioonide
+puhul kooskõlalise vaate andmetele.
+ Laseb teha päringuid mineviku ajahetke
+seisuga.
+
+
+• Milleks kasutatakse Oracle poolt logifailidesse kirjutatud logi?
+
+Alert Log - Informatsioon oluliste sündmuste kohta
+(sealhulgas erandolukorrad), mis on Oracle
+eksemplariga selle tööajal juhtunud.
+
+Redo log - koosneb muudatuste vektoritest,
+millest igaüks kirjeldab mingit plokis
+toimunud muudatust Oracle andmebaasis.
+
+Kasutatakse andmebaasi taastamiseks korrektses seisundis peale veaolukorda.
+
+• Milleks kasutab Oracle eksemplar erinevaid mälupuhvreid?
+
+Andmepuhver (ingl Block Buffer Cache) - Siin hoiab Oracle plokke peale nende kettalt lugemist ja enne kettale kirjutamist.
+
+Logipuhver - Andmemuudatuste kohta genereeritud logi
+
+Jagatud puhver (jagatud puul) (ingl shared pool) - SQL lausete täitmisplaanid, süsteemikataloogist pärit
+info (tabelite kirjeldused, rollid, õigused jne), SQL päringute ning PL/SQL funktsioonide tulemused.
+
+Java puhver (Java puul) (ingl Java Pool) - Kasutatakse Java salvestatud protseduuride täitmisel.
+
+
+• Mida tähendab, et andmebaasi plokk on räpane (dirty block)? (seda on
+mälus muudetud)
+
+
+• Mis juhtub räpaste plokkidega, kui andmebaasisüsteem kasutab WAL
+protokolli? (neid ei pea kohe muudatuse järel või kohe transaktsiooni
+lõppedes kettale kirjutama)
+
+
+• Mis on flashback päring, millises andmebaasisüsteemis seda saab
+kasutada? (Oracle ajamasin)
+
+
+• Millal on Oracles kasulik kasutada jagatud serveri arhitektuuri ja millal
+pühendunud serveri arhitektuuri?
+
+Pühendunud server
+(vaikimisi seadistus)
+ Klient käivitab
+kauakestvaid
+transaktsioone (jagatud
+serveriprotsess oleks sellega
+ametis ja ei saaks sellel ajal
+teiste klientide soove täita)
+ Kauakestvad päringud
+ Pakktöötlus
+ Andmebaasi
+varundamine/taastamine
+RMAN programmi abil
+
+
+ Jagatud server
+ Kui tegemist on
+süsteemiga, kus luuakse
+palju kliendi ühendusi,
+mis käivitavad lühikesi
+transaktsioone.
+ Jagatud serveri
+kasutamine vähendab
+serveril töötavate
+protsesside arvu.
+10.11.2017 Teema 3
+
+
+• Mis iseloomustab vaba tarkvara ja eristab seda omanduslikust tarkvarast?
+(näiteks avatud lähtekood)
+
+
+• Kas vaba tarkvara tähendab alati tasuta tarkvara? (ei)
+
+* Kuidas on Oracle (12c) andmebaasis seotud tabeli plokid ja read? (igas tabeli
+plokis on null või rohkem rida)

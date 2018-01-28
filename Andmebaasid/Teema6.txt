@@ -1,0 +1,259 @@
+Mis vahe on INITIALLY DEFERRED ja INITIALLY IMMEDIATE määranguga
+kitsendustel – peab aru saama kuidas kitsendusele ühe või teise sellise
+omaduse määramine mõjutab andmete muutmise stsenaariumi tulemust.
+IMMEDIATE constraints are checked at the end of each statement. 
+DEFERRED constraints are not checked until transaction commit.
+
+
+
+• Milliste sõnade põhjal on koostatud transaktsioonide omadusi nimetav
+akronüüm ACID? (Atomicity, Consistency, Isolation, Durability) Mida need
+sõnad tähendavad?
+ Atomaarsus (Atomicity)
+ Transaktsiooni väljakutsuja (klient, rakendus) seisukohalt on
+transaktsioon loogiline tervik, mis täidetakse kas täielikult või
+jäetakse täielikult täitmata.
+ Terviklikkus, konsistentsus (Consistency)
+ Transaktsioon viib andmebaasi ühest korrektsest seisundist teise.
+ Isoleeritus (Isolation)
+ Transaktsioonid ei saa piiluda üksteise vahetulemusi.
+ Püsivus, jätkuvus (Durability)
+ Andmebaasisüsteem garanteerib transaktsiooni lõppemise järel selle
+tehtud muudatuste püsiva salvestam
+
+• Kuidas algab transaktsioon PostgreSQLis (START TRANSACTION lause)
+ja Oracles (esimene andmekäitluskeele lause peale eelmise transaktsiooni
+lõppu algatab uue transaktsiooni)?
+
+
+• Mida tähendab, et transaktsioonis on salvestuspunkt ning kuidas see
+mõjutab transaktsiooni tulemust? (selleni saab tagasi rullida ja siis tööd
+jätkata)
+
+
+• Millised laused on mõeldud transaktsiooni kinnitamiseks (COMMIT) ja
+tagasirullimiseks (ROLLBACK)?
+
+
+• Kas PostgreSQL ja Oracle võimaldavad koondada andmekirjelduskeele ja
+andmekäitluskeele laused ühte transaktsiooni? (PostgreSQL võimaldab,
+Oracle ei võimalda)
+
+
+• Mis on multiversioon konkurentsjuhtimine ja millised andmebaasisüsteemid,
+seda realiseerivad? (nii PostgreSQL kui ka Oracle realiseerivad)
+ Samade andmete samaaegne lugemine ja
+kirjutamine ei lähe omavahel konflikti ja ei
+blokeeri üksteist.
+ Süsteemides, mis ei toeta, blokeerivad lugemine ja
+muutmine üksteist.
+ Hind: Andmebaasisüsteem peab säilitama ridade
+või plokkide versioone kuni leidub mõni
+transaktsioon, mis soovib neid kasutada.
+
+• Kas PostgreSQLis ja Oracles takistab andmete lugemine ühes
+transaktsioonis nende andmete muutmist teises? (ei takista, kuna mõlemad
+andmebaasisüsteemid rakendavad multiversioon konkurentsjuhtimist)
+
+
+• Mis on Write Ahead Logging ja millised andmebaasisüsteemid, seda
+realiseerivad? (nii PostgreSQL kui ka Oracle realiseerivad)
+ Ükski muudatus ei lähe stabiilsesse andmebaasi
+enne, kui selle kohta käiv logi on kirjutatud kettal
+asuvasse logifaili (st püsivalt salvestatud).
+ Tagab, et iga stabiilses andmebaasis tehtud
+muudatuse kohta on olemas ka logikirje logifailis.
+ Vajadusel on võimalik see muudatus tühistada
+(undo) või uuesti teha (redo)
+
+• Milleks on vajalik andmeelemendi lukustamine?
+ Andmeelemendi kasutamise blokeerimine.
+ Lukkude tüübid:
+ jagatud lukk e ühislukk – lugemiseks,
+ eksklusiivne lukk e monopollukk – muutmiseks.
+ Teiste transaktsioonide valikud, kui element
+eksklusiivselt lukustatud:
+ ootamine,
+ tagasirullimine.
+
+ Jagatult lukustatud elemendile (ja selle alam- ning
+ülemelementidele) saab teine transaktsioon panna
+jagatud luku, aga ei saa panna eksklusiivset lukku.
+ Andmete lugemine blokeerib nende samaaegse muutmise
+teiste transaktsioonide poolt.
+ Eksklusiivselt lukustatud elemendile (ja selle alam-
+ning ülemelementidele) ei saa teine transaktsioon
+teisi lukke panna.
+ Andmete muutmine blokeerib nende samaaegse lugemise
+ja muutmise teiste transaktsioonide poolt.
+ Kavatsuslik lukk – teistele hierarhia elementidele.
+
+
+• Kui andmeelemendil ei ole lukku, siis kas ja millist tüüpi lukke saab
+elemendile panna? (jagatud ja eksklusiivne)
+
+
+• Kui andmeelemendil on jagatud lukk, siis kas ja millist tüüpi lukke saab
+elemendile täiendavalt panna? (jagatud lukk)
+
+
+• Kui andmeelemendil on eksklusiivne lukk, siis kas ja millist tüüpi lukke saab
+elemendile täiendavalt panna? (teisi lukke panna ei saa)
+
+
+• Mida tähendab kahefaasiline lukustamisprotokoll (2PL)?
+ Teoreem: Kui kõik transaktsioonid täidavad
+kahefaasilist lukustamisprotokolli, siis on
+kõik antud protokolli järgi võimalikud
+mittejärjestikulised tööplaanid
+serialiseeritavad.
+
+
+• Milliste operatsioonide paarid on konfliktipõhise serialiseerimise korral
+konfliktsed ja milliste paarid mitte?
+KONFLIKTSED
+ ra(X), wa(X) (sama transaktsiooni sees toimuvad operatsioonid)
+ wa(X), wb(X)
+ ra(X), wb(X)
+ wa(X), rb(X)
+ Selliste paaride puhul on operatsioonide
+täitmise järjekord oluline.
+
+MITTEKONFLIKTSED
+ra(X), rb(X)
+ ra(X), rb(Y)
+ ra(X), wb(Y)
+ wa(X), rb(Y)
+ wa(X), wb(Y)
+
+
+• Millal vabastatakse PostgreSQLis ja Oracles reale pandud eksklusiivne
+lukk? (transaktsiooni lõppedes)
+
+
+• Mida tähendab Oracles autonoomne transaktsioon?
+Autonomous transactions are used when you wan to roll-back some code while continuing to process an error logging procedure.
+
+The term "automous transaction" refers to the ability of PL/SQL temporarily suspend the current transaction and begin another,
+ fully independent transaction (which will not be rolled-back if the outer code aborts).
+ The second transaction is known as an autonomous transaction. The autonomous transaction functions independently from the parent code.
+
+
+
+• Milline on SQL standardis ette nähtud transaktsioonide vaikimisi
+isolatsioonitase (SERIALIZABLE) ning milline isolatsioonitase on vaikimisi
+PostgreSQLis ja Oracles (READ COMMITTED)?
+
+
+• Milline SQL standardis kirjeldatud isolatsioonitase tagab kõige suurema
+transaktsioonide isoleerituse? (SERIALIZABLE)
+
+
+• Paralleelselt toimuvate transaktsioonide stsenaariumite tulemus juhul kui
+transaktsioonid kasutavad READ COMMITTED või SERIALIZABLE
+isolatsioonitaset – vaadake materjalides toodud näiteid.
+
+READ COMMITED - fantoomkirje
+Lause "näeb" enne selle
+käivitamist kinnitatud
+andmeid ja samuti teda
+sisaldava transaktsiooni
+käigus tehtud muudatusi.
+
+SERIALIZABLE
+Lause "näeb"
+enne seda
+sisaldava
+transaktsiooni
+algust kinnitatud
+andmeid ja
+samuti teda
+sisaldava
+transaktsiooni
+käigus tehtud
+muudatusi.
+
+• Kas isolatsioonitaseme suurendamine paneb transaktsioone rohkem
+üksteise järgi ootama? (jah)
+
+
+• Kas ja millisel viisil saan PostgreSQLis ja Oracles anda ilmutatud kujul käsu
+rea eksklusiivseks lukustamiseks? (SELECT ... FOR UPDATE)
+
+
+• Kas transaktsioonis toimuvate päringute tulemustes on näha selle sama
+transaktsiooni käigus eelnevalt tehtud muudatused? (jah)
+
+
+• Milleks kasutatakse PostgreSQLis ja Oracles LOCK TABLE lauset?
+pessimistlikus lähenemises
+
+• Mis on kontrollpunkt (checkpoint)? (toimub kõigi muutmälus muudetud plokkide kettale kirjutamine)
+
+
+• Millised transaktsioonid tuleb with undo/with redo tüüpi tehnika kasutamisel
+andmebaasi taastamise käigus uuesti läbi viia ja milliseid pole vaja uuesti
+läbi viia? (enne kontrollpunkti lõppenuid pole vaja uuesti läbi viia)
+
+
+• Mis on tupik, kuidas seda lahendada ning kuidas sellesse sattumist vältida?
+Tupik e ummik e
+"surnud ringi
+tekkimine" on
+patiseis, mis tekib
+kui kaks või rohkem
+võistlevat protsessi
+ootavad üksteise
+taga, et need mingi
+ressursi kasutamise
+lõpetaksid ja
+ülejäänud protsessid
+saaksid tööd jätkata.
+
+Lõpetamiseks
+võib kasutada
+aegumise
+meetodit –
+transaktsioon
+võib oodata
+vaid mingi
+ajaperioodi.
+
+ Korraga saab ressurssi (nt andmebaas)
+kasutada ainult üks kasutaja.
+ Ilmselt vastuvõetamatu!
+ Tupiku võimalus on hind, mida tuleb
+ressursside jagamise eest maksta.
+ Disainivalikud aitavad tupikute võimalust
+vähendada.
+
+ Transaktsioonil on ajatempel
+ Ajatemplid on täielikult järjestatud
+ Ajatempel saadakse süsteemi kella või loenduri abil
+ Olukord: Transaktsioon Ta lukustab elementi, Tb
+tahab ka sama elementi lukustada
+ Erinevad algoritmid nagu Wait-Die ja Wound Wait,
+mille järgimine aitab tupikuid vältida.
+
+• Mis on (rakenduste arendajate võetav) optimistlik lähenemine andmete
+lukustamisele? (ei võeta ennetavaid meetmeid andmete samaaegse
+muutmise probleemide vältimiseks)
+
+
+• Kui rakendus kasutab optimistlikku lähenemist ridade lukustamisele ning kui
+kaks kasutajat muudavad sama rida samal ajal, siis kelle muudatus
+salvestatakse? (esimesena salvestaja)
+
+
+• Mida kujutavad endas optimistlik ja pessimistlik lähenemine
+SQL-andmebaasi tabelis ridade samaaegsele muutmisele? (vt ülesanne 8)
+ Pessimistlik lähenemine
+ konfliktide ennetamine
+ võib tingida tupiku
+ levinud kasutaja arvutis "istuvates" rakendustes
+
+ Optimistlik lähenemine
+ konfliktide tuvastamine ja nendega käigult tegelemine
+ levinud veebirakendustes
+ negatiivne kasutajakogemus – sisestan nõutud andmed ja
+siis …

@@ -1,6 +1,5 @@
 package praks11.airlineservice;
 
-import praks11.ticketContainers.TicketArchive;
 import praks11.ticketContainers.TicketStorage;
 
 import java.util.Arrays;
@@ -11,8 +10,8 @@ public class LufthansaTicketService implements AirlineTicketService {
 
     private static int nextTicketId = 0;
     private TicketStorage ticketStorage;
-    private final int AMOUNT_OF_MAX_GENERATEABLE_TICKETS = 3700;
-    private final int MAX_AMOUNT_OF_TIME_DELAY = 1;
+    private final int AMOUNT_OF_MAX_GENERATEABLE_TICKETS = 500;
+    private final int MAX_AMOUNT_OF_TIME_DELAY = 100;
     private int amountOfGeneratedTickets = 0;
     private List<String> firstNamePool = Arrays.asList("Manuel", "Sierra", "Ragnar", "Mike", "Juliet");
     private List<String> lastNamePool = Arrays.asList("Felicitas", "Hotel", "Luga", "Harrison", "Fox");

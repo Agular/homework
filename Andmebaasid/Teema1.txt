@@ -1,0 +1,91 @@
+Mis vahe on funktsionaalsetel/mittefunktsionaalsetel nõuetel? Millises
+arenduse etapis nõudeid kogutakse? (analüüs)
+
+
+• Millises arenduse etapis alustatakse töökiiruse kohta nõuete kogumist
+(analüüs) ja kas tegemist on funktsionaalsete või mittefunktsionaalsete
+nõuetega (mittefunktsionaalsed)?
+
+
+• Kose mudeli etappide põhilised oodatavad tulemused, etappide järjekord.
+
+
+• RUP – järgud, iteratsioonid, distsipliinid – mis need on, milline on nende
+omavaheline seos?
+
+
+• Millised konkreetsed arendusmetoodikad kasutavad kose mudelit
+(Oracle*CASE Method jne), millised iteratiivset mudelit (RUP,
+ekstreemprogrammeerimine, Scrum jne)?
+
+
+• Millised konkreetsed arendusmetoodikad on paindmetoodikad
+(ekstreemprogrammeerimine, Scrum jne) ja millised monumentaalsed
+metoodikad (RUP, Oracle*CASE Method jne)?
+
+
+• Kose mudeli ja iteratiivse mudeli alusel arendamise eelised ja puudused.
+
+
+• Milliste artefaktide (tulemite) alusel toimub iteratiivse arenduse korral
+tüüpiliselt iteratsioonide planeerimine? (kasutusjuhud/kasutuslood)
+
+
+• Paindmetoodikate (näiteks Scrum ja ekstreemprogrammeerimine)
+põhimõisted ja põhilised printsiibid. Kui pikad on nende korral iteratsioonid?
+(1-3 nädalat) Kuidas nimetatakse Scrum'is iteratsioone? (sprint) Kuidas on
+Scrum'i korral omavahel seotud arendusmeeskond, ScrumMaster ja Toote
+omanik?
+
+
+• Kas Scrum metoodika näeb ette andmebaasi disaineri rolli? (Ei)
+
+
+• Andmebaasi loomine paindmetoodikaid kasutades.
+
+
+• Mis on ajakarbi (timeboxing) meetod? (Kõigile tegevustele on nähtud ette
+maksimaalne lubatud pikkus. Kui on näha, et kõike planeeritut ei jõuta
+tähtajaks valmis, siis vähendatakse skoopi (st loobutakse mõne
+vähemtähtsa asja tegemisest), mitte ei muudeta tähtaega.)
+
+
+• Milline on Scrumi "suletud akna reegel"? (Iteratsiooni käigus ei hakata
+käsitlema uusi nõudmisi – selleks on järgmised iteratsioonid)
+
+
+• Mis on andmebaasi refaktoreerimine?
+
+
+• Kas UML on arendusmetoodika? (ei ole)
+
+
+• Kui suure osa moodustavad tüüpilisest organisatsiooni andmemudelist
+üldised osad, mida saab kasutada enamikes organisatsioonides (sõltumata
+organisatsiooni valdkonnast - haridus, meditsiin, telekommunikatsioon,
+müük jne) (50%) ning kui suure osa moodustavad osad, mis on spetsiifilised
+konkreetsele organisatsioonile (Tehnikaülikool, EMT, Nortal, Põhja-Eesti
+regionaalhaigla jne) (25%)?
+
+
+• Kuidas tuleks luua andmemudeleid (kontseptuaalne, loogiline, füüsiline)
+paindmetoodikate kasutamise korral?
+
+
+• Peab oskama kontseptuaalsest andmemudelist välja lugeda protsesse, mille
+käigus kasutatakse sellise mudeli alusel loodud andmebaasi.
+
+
+• Mida tähendab tehniline võlg? Milline on selle mõju süsteemi arengule?
+
+
+• Millised on tehnilise võla tunnused (halvad lõhnad) SQL-andmebaasides
+(nt suur tabelite arv ei ole; kõik mida on vaja refaktoreerida on)?
+
+
+• Mida tähendab, et (andmebaasi)disainil on halb lõhn?
+
+
+• Mida tuleb teha koodi (ja ka teiste tehiste) kvaliteedi parandamiseks?
+(refaktoreerida)
+

@@ -1,0 +1,414 @@
+Kõik, mida pidite tegema "Andmebaasid II" projektis, sh näiteks trigerid
+seisundimuudatuste kontrollimiseks, INSERT laused, statistika
+värskendamine jne.
+
+
+• Kas UMLis loodud andmebaasi diagrammide korral saab ühte tabelit esitada
+mitmel diagrammil? (jah)
+
+
+• Kui andmebaasi diagrammil on veerud ja kitsendused peidetud, siis peab
+oskama võimsustike alusel määrata, millistes tabelites on välisvõtmed ja kui
+palju neid on.
+
+
+• Mis on klassifikaatorite koodid ning kes ja kuidas neid tekitab?
+(andmebaasisüsteem ei genereeri)
+
+
+• Millised koodi kihid realiseeritakse "paksu andmebaasi" korral
+andmebaasisüsteemi pakutavaid võimalusi kasutades?
+
+
+• Millist tüüpi skeemiobjektid EI KUULU virtuaalsesse andmete kihti, mis
+realiseerib andmebaasi avaliku liidese? (baastabelid)
+
+
+• Millised on klient/server süsteemide põhilised omadused?
+
+
+• Kas ja milline tarkvara peab lisaks veebilehitsejale kindlasti olema
+lõppkasutaja arvutis, et kasutada Oracle Application Express abil loodud
+rakendust? (ainult veebilehitseja)
+
+
+• Mida ütleb "katkiste akende teooria" tarkvara arendajale sh andmebaasi
+arendajale? (ka pisiprobleemid on vaja kohe lahendada, muidu tarkvara
+roiskub)
+
+
+• Millised programmid pakuvad Oracle andmebaasi programmeerimiseks
+graafilise kasutajaliidese? (SQL Developer; APEX SQL Workshop)
+
+
+• Kuidas nimetatakse interaktiivset terminaliprogrammi, mida kasutatakse
+PostgreSQL andmebaasiga töötamiseks? (psql)
+
+
+• Kui mitu baastabelit nimega Isik võib maksimaalselt sisalduda ühes
+PostgreSQL või Oracle andmebaasi skeemis? (üks)
+
+
+• Kas PostgreSQL või Oracle andmebaasis võib olla ühes baastabelis rohkem
+kui üks veerg, millel on samasugune tüüp? (jah)
+
+
+• Kas PostgreSQL ja Oracle andmebaasis võib olla ühes baastabelis rohkem
+kui üks veerg, millel on samasugune nimi? (ei)
+
+
+• Kas ühes ja samas PostgreSQL või Oracle andmebaasi baastabelis saab
+olla deklareeritud rohkem kui üks primaarvõti? (ei)
+
+
+• Kas ühes ja samas PostgreSQL või Oracle andmebaasi baastabelis saab
+olla deklareeritud rohkem kui üks UNIQUE kitsendus? (jah)
+
+
+• Kas PostgreSQL ja Oracle andmebaasides tabeli loomisel saab määrata
+ühele veerule DEFAULT klausliga rohkem kui ühe vaikimisi väärtuse? (ei)
+
+
+• Kas PostgreSQL ja Oracle andmebaasides veerule määratud vaikimisi
+väärtust saab rea lisamisel või muutmisel asendada kasutaja poolt valitud
+väärtusega? (jah)
+
+
+• Milline CHECK kitsendus tuleb PostgreSQLis luua, et jõustada reegel: ühegi
+isiku perenimi ei tohi sisaldada mitte ühtegi numbrimärki.
+
+
+• Millise reegli jõustab PostgreSQL andmebaasis järgnev CHECK kitsendus?
+CHECK (tyhik!~'^[[:space:]]*$') ? (ei tohi olla tühi string ega tühikutest
+koosnev)
+
+
+• Loon PostgreSQL või Oracle andmebaasis tabeli, millega on seotud CHECK
+kitsendus CONSTRAINT chk_a_b CHECK(NOT(a=1) OR (b=2))); a ja b on
+täisarvu tüüpi veerud. Millise reegli see kitsendus jõustab? (kui a=1, siis
+peab b=2).
+
+
+• Milline etteantud stringidest vastab järgneva regulaaravaldise abil määratud
+mustrile? '^[^S].*([k]{2,}|[l]{2,}|[m]{2,}).*$'
+
+
+• Milline järgnevatest vabatekstilistest kirjeldustest selgitab kõige täpsemalt
+selle regulaaravaldise mustri tähendus? '^[^A].*$'
+
+
+• Oletame, et PostgreSQL või Oracle andmebaasis on tabel Yritus, milles on
+muuhulgas veerud alguse_aeg (selles registreeritakse ürituse alguse aeg) ja
+lopu_aeg (selles registreeritakse ürituse lõpu aeg). Soovin iga tabeli Yritus
+rea korral jõustada reegli, et ürituse lõpu aeg ei tohi olla varasem kui alguse
+aeg. Milline tabeliga seotud CHECK kitsendus tuleb selleks defineerida?
+
+
+• Millised kitsendused tuleb luua, et võimaldada registreerida andmeid
+lauatelefonide kohta ühes tabelis vastavalt järgnevatele reeglitele:
+ühel isikul võib olla mitu telefoni numbrit.
+ühte telefoni numbrit võivad jagada mitu isikut.
+
+
+• Kuidas tabelite deklareerimisel näidata, et objekt läheb peale loomist
+mingisse kindlasse seisundisse? (deklareerida vaikimisi väärtus
+seisundiklassifikaatorile viitava välisvõtme veerule)
+
+
+• Tuleb aru saada, millised kitsendused (PRIMARY KEY, NOT NULL,
+CHECK, UNIQUE) tekivad kontseptuaalses andmemudelis atribuutidele
+defineeritud kitsendustest.
+
+
+• Kuidas jõustada andmebaasis reegel, et tabelis Kaup peab hind olema
+positiivne arv? (hind>0)
+
+
+• Kuidas kontrollida CHECK kitsendusega, et arv peab olema vahemikus 10
+kuni 20, otspunktid kaasa arvatud? (CHECK(arv BETWEEN 10 AND 20))
+
+
+• Kuidas kontrollida CHECK kitsendusega, et hind peab olema suurem kui 0
+ja väiksem kui 100? (CHECK(hind>0 AND hind<100))
+
+
+• Milliseid andmeid näeb kasutaja Oracles tehes süsteemikataloogi põhjal
+päringu SELECT * FROM Tab;? (enda tabelid, vaated, sünonüümid)
+
+
+• Millise lausega luuakse PostgreSQL ja Oracle andmebaasides
+baastabeleid, virtuaalseid tabeleid, hetktõmmiseid?
+
+
+• Mida tähendavad välisvõtme deklaratsioonis ON DELETE CASCADE ja ON
+DELETE NO ACTION?
+
+
+• Kuidas deklareerida PostgreSQLis ja Oracles õigesti, et tabeli A
+alternatiivvõti on (b)? (sellele veerg peab olema NOT NULL ja sellele tuleb
+deklareerida UNIQUE kitsendus)
+
+
+• Oletame, et PostgreSQLi andmebaasis on tabelid [Isik]-1-------0..1-[Tootaja].
+Tabelite Isik ja Tootaja primaarvõti on (isikukood), mis on EV isikukood.
+Lisaks on (isikukood) ka tabeli Tootaja välisvõti, mis viitab tabelile Isik.
+Milline peaks olema selles välisvõtmes kompenseerivate tegevuste
+määrang? (ON UPDATE CASCADE, ON DELETE CASCADE)
+
+
+• Kuidas saavutada veerus mitte-tõstutundlik unikaalsuse kontrollimine?
+(UNIQUE kitsenduse asemel tuleb luua unikaalne, funktsioonil Upper
+põhinev indeks)
+
+
+• Millise PostgreSQL ja Oracle andmetüübi korral paneb andmebaasisüsteem
+tekstistringi salvestamisel maksimaalse väljapikkuse saavutamiseks
+salvestatava stringi lõppu tühikud? (CHAR)
+
+
+• Kuidas mõjutavad välisvõtme kitsenduste deklaratsioonid tabelite loomise
+lausetes nende lausete käivitamise järjekorda? Tuleb osata määrata õige
+järjekord.
+
+
+• Kas PostgreSQL ja Oracle lubavad baastabelis kahte või rohkemat veergu,
+millel on sama andmetüüp? (jah)
+
+
+• Millist tüüpi peab PostgreSQLis olema veerg, kus on kuupäev+kelaaeg ilma
+ajavööndi infota? (timestamp)
+
+
+• Millise reegli jõustab PostgreSQL andmebaasis tabelile loodud kitsendus
+kitsendus CHECK ((a IS NOT NULL) OR (b IS NOT NULL))?
+
+
+• Millise reegli jõustab PostgreSQL andmebaasis tabelile loodud kitsendus
+CHECK (nimetus!~'^[[:space:]]*$') ?
+
+
+• Milline CHECK kitsendus jõustab PostgreSQLis korrektselt kitsenduse:
+"nimetus ei tohi sisaldada ühtegi tühikut"?
+(CHECK(nimetus!~'^.*[[:space:]].*$'))
+
+
+• Kas PostgreSQL andmebaasi kohustuslikule BOOLEAN tüüpi veerule tuleb
+defineerida täiendavaid kitsendusi, et seal saaks registreerida ainult
+väärtuseid TRUE ja FALSE? (ei)
+
+
+• Milline on CHECK kitsendus, mis kontrollib, et e-meili aadress peab
+sisaldama @ märki?
+
+
+• Kuidas jõustada veerus tõstutundetu unikaalsuse kontrollimine? (luua
+unikaalne funktsioonil upper (või lower) põhinev indeks)
+
+
+• Millise nimega skeem luuakse PostgreSQL andmebaasis automaatselt?
+(vihje - vaikimisi pandi sellesse kõik Teie loodud skeemiobjektid) (public)
+
+
+• Millise lausega luuakse Oracle andmebaasis uus skeem? (CREATE USER)
+
+
+• Millise fraasiga algav lause tuleb Oracle andmebaasis käivitada, et
+kustutada skeem? (DROP USER)
+
+
+• Kas Oracle toetab SQL standardis ette nähtud INFORMATION_SCHEMA
+skeemi? (ei)
+
+
+• Kuidas viidata mingis skeemis olevale tabelile? (skeemi_nimi.tabeli_nimi)
+
+
+• Millised on vaikimisi määrangud PostgreSQL ja Oracle arvujada
+generaatorite puhul? (start with 1, step 1)
+
+
+• Mis on PostgreSQLis SERIALi baastüübiks? (INTEGER)
+
+
+• Kui PostgreSQL tabeli primaarvõtme veeru korral on kasutatud SERIAL
+notatsiooni, siis mis tüüpi peab olema sellele primaarvõtmele viitava
+välisvõtme veerg? (INTEGER)
+
+
+• Millise lausega tuleb PostgreSQL ja Oracle andmebaasis kustutada vaade
+(kustutamine selles mõttes, et vaate info eemaldatakse
+süsteemikataloogist)? (DROP VIEW)
+
+
+• Millise lausega saab PostgreSQL ja Oracle andmebaasis küsida vaate
+väärtuse (vaate kaudu nähtavad andmed)? (SELECT * FROM vaate nimi;)
+
+
+• Millise eesliitega algavad Oracles süsteemikataloogi vaated, mille kaudu
+näeb kasutaja oma omandis olevate objektide kohta? (user_)
+
+
+• Millised andmemuudatused vaadete kaudu on lubatud? (üks tingimus on, et
+ei tohi minna vastuollu vaate aluseks olevatele baas tabelitele deklareeritud
+kitsendustega)
+
+
+• Milliste vaadete kaudu saab PostgreSQL ja Oracle andmebaasis vaikimisi
+andmeid muuta (ei ole vaja vaadet täiendavalt programmeerida)? (kindlasti
+saab näiteks siis, kui vaade on "lihtne" ja põhineb ühel tabelil)
+
+
+• Mitu rida ja veergu on Oracle süsteemses abitabelis Dual? (1 rida ja veerg)
+
+
+• Oletame, et soovin SQL*Plus või SQL Developer programmis vaadata
+funktsiooni current_date väärtust. Millise käsu pean selleks andma?
+(SELECT current_date FROM Dual;)
+
+
+• Milleks kasutatakse kokkuvõttefunktsioone string_agg (PostgreSQL) ja listagg (Oracle)?
+
+
+• Millised andmete muutmise SQL laused on kasutatavad Oracle
+andmebaasis? (INSERT, UPDATE, DELETE, MERGE, TRUNCATE)
+
+
+• Millised laused on PostgreSQLis ja Oracles kasutusel andmete
+kustutamiseks? (DELETE, TRUNCATE)
+
+
+• Millised laused võivad sisaldada WHERE klauslit? (DROP, TRUNCATE ei
+või; DELETE võib)
+
+
+• Millised laused muudavad andmebaasis andmeid (INSERT, UPDATE,
+DELETE, MERGE, TRUNCATE) ja millised muudavad andmebaasi skeemi
+e struktuuri (CREATE, ALTER, DROP)?
+
+
+• Mitu rida lisatakse järgneva PostgreSQL INSERT lausega tabelisse Kaup?
+INSERT INTO Kaup(kaup_id, nimi, hind) VALUES (1, 'Sony videomakk',150.30), (2, 'Philipsi videomakk', 200); (kaks rida)
+
+
+• Kuidas interpreteerivad PostgreSQL ja Oracle järgnevat päringut? SELECT * FROM Tootaja WHERE perenimi="Maasikas";
+
+
+• Millise ülesande lahendab Oracles järgnev päring? Tabelis Emp on 12 rida.
+SELECT * FROM (SELECT * FROM Emp ORDER BY dbms_random.value)
+WHERE ROWNUM <= 4;
+
+
+• Millise ülesande lahendab PostgreSQL ja Oracle andmebaasis järgnev
+päring: SELECT empno, ename, sal, dname FROM Emp INNER JOIN Dept
+USING (deptno) ORDER BY sal FETCH FIRST 5 ROWS ONLY;
+
+
+• Millise ülesande lahendab PostgreSQL ja Oracle andmebaasis järgnev
+päring: SELECT deptno, Count(*) AS arv, DENSE_RANK() OVER (ORDER
+BY Count(*) DESC) AS koht_yldises_pingereas FROM Emp GROUP BY
+deptno;
+
+
+• Kas andmebaasisüsteemid PostgreSQL ja Oracle nõuavad, et päringus
+peab alati ära määrama indeksi, mida päringu täitmise kiirendamiseks
+kasutada? (ei)
+
+
+• Mida kujutab endast UPSERT operatsioon? (näide on funktsioonis
+f_registreeri_tulemus, mis on kataloogis Aine korraldus olevas SQL lausete
+abil esitatud aine hindamispõhimõtete kirjelduses).
+
+
+• Mida kujutab endast andmebaasi kapseldamine?
+
+
+• Mis on andmebaasioperatsioonide lepingu alusel loodud funktsiooni/
+protseduuri kohustused?
+
+
+• Millise nimega süsteemi-defineeritud operaator on PostgreSQL ja Oracle
+andmebaasisüsteemis kasutusel stringide ühendamiseks ehk
+konkatenatsiooniks? (||)
+
+
+• Millise tulemuse annab PostgrSQLis ja Oracles süsteemi-defineeritud
+funktsiooni coalesce poole pöördumine järgmiste argumentidega
+coalesce(NULL,'a','b') ?
+
+
+• Milline funktsioon tagastab PostgreSQLis ja Oracles hetke kuupäeva ja
+kellaaja ilma ajavööndi infota? (LOCALTIMESTAMP)
+
+
+• Millises andmebaasisüsteemis (PostgreSQL/Oracle) kasutamiseks on
+järgnev päring mõeldud ja mis on selle päringu tulemus? (Oracle)
+SELECT dbms_metadata.get_ddl('TABLE', 'AINE','TUD1') FROM Dual;
+
+
+• Kuidas kirjutada SELECT lauset, millega kutsuda PostgreSQLis ja Oracles
+funktsioone? (PostgreSQL SELECT funktsiooni_nimi(argumendid); Oracle:
+SELECT funktsiooni_nimi(argumendid) FROM Dual;)
+
+
+• Kas ja kuidas saab muuta PostgreSQL või Oracle andmebaasis loodud
+kasutaja-defineeritud funktsiooni kehandit ilma funktsiooni kustutamata?
+(CREATE OR REPLACE FUNCTION lause)
+
+
+• Kuidas kirjutatakse PostgreSQLis ja Oracles kasutaja-defineeritud
+funktsioonide loomise lausetes parameetreid?
+(parameetri_nimi Tabeli_nimi.veeru_nimi%TYPE)
+
+
+• Kui tahan kasutada PostgreSQL kasutaja-defineeritud funktsioonis IF lauset,
+siis millist keelt pean funktsiooni kirjutamiseks kasutama? (PL/pgSQL)
+
+
+• Millise funksiooni alternatiivseks esitusviisiks on PostgreSQLis funktsioon
+now()? (CURRENT_TIMESTAMP)
+
+
+• Millist tüüpi peab PostgreSQLis olema veerg, mille vaikimisi väärtus on
+CURRENT_TIMESTAMP? (TIMESTAMP WITH TIME ZONE)
+
+
+• Mis on PostgreSQLis avaldise 'tekst' || NULL arvutamise tulemuseks?
+(NULL)
+
+
+• Mida tähendab FOR EACH ROW trigeri spetsifikatsioonis?
+
+
+• Millist tüüpi trigereid saab/ei saa kasutada andmebaasisüsteemis Oracles ja
+PostgreSQLis? (ei saa DURING trigereid)
+
+
+• Millistele lausetele reageerimiseks saab/ei saa PostgreSQLis/Oracles trigerit
+luua? (ei saa SELECT lausetele)
+
+
+• Kuidas saab andmebaasi kasutaja käivitada PostgreSQL või Oracle
+andmebaasis tabelile Isik loodud BEFORE INSERT trigeri? (rea lisamine
+tabelisse)
+
+
+• Millise nimega reatüüpi muutujat saab kasutada PostgreSQL või Oracle
+andmebaasis loodud BEFORE INSERT reataseme trigeris? (NEW)
+
+
+• Tuleb osata ära tunda ja eristada PostgreSQLis ja Oracles trigerite
+loomiseks kasutatavaid lauseid.
+
+
+• Kui on antud triger ja andmekäitluskeele lause, siis tuleb osata aru saada,
+kas see lause tingib selle trigeri protseduuri käivitumise ning kui tingib, siis
+kui mitu korda protseduuri täidetakse.
+
+
+• Millist tüüpi trigeri korral on (PostgreSQL ja Oracle näitel) väärtustatud nii
+reatüüpi muutuja NEW kui ka reatüüpi muutuja OLD? (reataseme UPDATE
+triger)
+
+
+• Milline õigus on vaikimisi PostgtreSQLis kõigil uutel mitteülikasutajatest
+kasutajatel? (EXECUTE õigus funktsioonide suhtes)

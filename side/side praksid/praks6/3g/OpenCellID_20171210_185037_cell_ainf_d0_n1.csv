@@ -1,0 +1,3 @@
+sep=,
+lat,lon,mcc,mnc,lac,cellid,averageSignalStrength,range,samples,changeable,radio,rnc,cid,tac,sid,nid,bid
+59.4018512,24.6963932,248,2,1021,13228984,,,,,UMTS,201,,,,,

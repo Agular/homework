@@ -1,0 +1,165 @@
+1. TÄHTIS! Kindlasti on vaja endiselt mäletada, mis on polümorfne käitumine!
+
+2. Seleta voo (stream) mõistet üldiselt. Mis on voog?
+Andmete liikumise kanal
+Küllaltki abstraktne mõiste
+Stream ei salvesta andmeid
+Stream ei muuda algandmeid
+
+3. Milleks on mõeldud spetsialiseeritud voog java.util.stream paketis? Mõni näide?
+Spetsialiseeritud voo saame tekitada, kui on vaja analüüsida primitiivset andmetüüpi
+andmeid (näiteks int või double). Voo tekitamiseks on spetsiaalsed mapperid, nt mapToInt ja mapToDouble
+
+4. Kas Java 8 stream'ide meetodid filter(), map(), count(), collect() on entusiastlikud (eager)
+või laisad (lazy) meetodid? Mis vahe neil on?
+
+eager count collet
+lazy filter map
+
+Eager methods (entusiastlikud meetodid)
+alustavad kohe tööd
+Lazy method (laisad meetodid)
+viivitavad tööga kuni mõni entusiastlik meetod
+nad tööle paneb
+
+
+5. Kas eelmises küsimuses nimetatud meetodid on lõplikud (terminal) või vaheoperatsioonid
+(intermediate operations)? Mis vahe neil on?
+intermediate - filter map
+terminal count collect 
+Intermediate operations return a new stream. They are always lazy; 
+executing an intermediate operation such as filter() does not actually perform any filtering,
+but instead creates a new stream that, when traversed, contains the elements of the initial stream that match the given predicate. 
+Traversal of the pipeline source does not begin until the terminal operation of the pipeline is executed.
+
+6. Kuidas määratakse lambda tüüp? Tooge koodinäide.
+Lambda tüüp ja argumentide tüübid määratakse selle meetodi kaudu, mis lambdat tarvitab, nt filter():
+
+7. Mis on funktsionaalne liides (functional interface) ja milleks kasutatakse?
+Liides, mis sisaldab täpselt ühte abstraktset meetodit. Nende abil näiteks määratakse lambda tagastatav tüüp.
+
+8. Mis on ja kuidas kasutatakse viidet meetodile obj::method süntaksiga
+Nagu viitame tavalisele Java objektile, saame viidata ka meetodile
+Viidatud meetod käivitatakse koos argumentidega selle meetodi poolt, millele
+ta argumendiks on (nt filter()'i poolt)
+ Too meetod kutsub välja funktsionaalses
+liideses defineeritud meetodi (predikaadi
+puhul test())
+
+9. Mis on sõltuvuse sisestamine (dependency injection)? Tooge koodinäide.
+public class DigiDocContainer {
+private CryptoAlgorithm cryto;
+	public DigiDocContainer(CryptoAlgorithm crypto) {
+		this.cryto = crypto;
+	}
+}
+
+10. Mis on race condition (konkurentsiolukord)?
+Programmi korrektne täitmine sõltub ajastusest
+ Kui järjestus ei ole tagatud (nt atomaarse
+operatsiooni, sünkroniseerimise vmt abil),
+siis võib race condition põhjustada bugi
+
+11. Millised võimalused on turvaliseks andmete jagamiseks lõimede vahel?
+1. võimalus: final välja abil
+2. v]imalus sünkroniseerimine
+
+12. TÄHTIS! Selgitage kahte olulist ideed, miks andmete kasutust sünkroniseerida?
+andmete terviklikkus
+oma koopia uuendamine
+
+13. Mitu objekti võivad korraga objekti monitori lukus hoida (kindlasti uurige, kas ootav lõim
+hoiab monitori lukus või mitte)?
+Monitor on kontseptsioon, mis on vajalik
+lõimede töö koordineerimiseks
+ Igal objektil on monitor, mida lõim saab
+lukustada
+ Kui monitor on lukus, siis teine lõim seda
+kasutada ei saa
+
+
+14. Kirjeldage, kuidas tekib deadlock ja kuidas see on seotud einestavate filosoofide
+probleemiga?
+Üks lõim lukustab objekti monitori
+ ... ja kutsub välja teise lõime, mis soovib
+sama monitori kasutada
+ Üks ootab teise taga, kumbki ei saa
+jätkata
+
+15. Millises järjekorras lõimed töötavad?
+Lõimed võivad suvalises järjekorras töötada, selle otsustab JVM.
+
+
+16. Tundke ära singleton, strateegia ja MVC mustrid. Miks neid kasutatakse?
+strateegia - Üks rakendatavamaid disinimustreid, kus
+domeeniobjekti käitumine sõltub
+kasutatavast strateegiast.
+Singleton on klass, millest on lubatud süsteemis teha ainult üks objekt.
+Model – andmete jaoks
+ View – andmete esitamiseks
+ Controller – valib vastavalt kasutaja soovile õige
+view ja modeli ja paneb nad kokku
+ Kontroller tunneb nii mudelit kui view’d
+ View enamasti oskab kasutada mudelit
+ Mudel ei tea viewst midagi
+ Mudel ei tea controllerist midagi
+ Disainimuster (design pattern) on
+standardne lahendus tihti esinevale
+probleemile
+
+17. Millal on ülesande lahendamine lõimedega kiirem kui ühe lõimega? Millal aeglasem?
+kui thread saab teha ylesannet s6ltumatult teistest, nt alamülesannet.
+aeglasem, kui nt peab korduvalt küsima andmeid mujalt.
+
+18. Mille alusel valida sobiv funktsionaalne liides?
+Tagastatava vastuse alusel.
+
+
+19. Tundke ära ja osake seletada, miks on vajalik järgida „tell, don’t ask” printsiipi?
+Tell-Don't-Ask is a principle that helps people remember that object-orientation is about bundling data with the functions that operate on that data.
+ It reminds us that rather than asking an object for data and acting on that data, we should instead tell an object what to do.
+ This encourages to move behavior into an object to go with the data.
+
+
+20. Mis vahe on Future ja CompletableFuture?
+Poll for results
+● Mudel, kus lõpuks peame ikkagi ootama, millal
+task töö lõpetab
+● Kui tulemust tahame, siis peame pärima (pollima)
+
+Loo task ja unusta
+● Anna ette tegevused peale töö valmimist
+● Pealõim, taskide looja, ei pea ootama töö
+valmimist
+
+
+21. Milleks kasutatakse fork-join tehnoloogiat?
+The fork/join framework is an implementation of the ExecutorService interface that helps you take advantage of multiple processors.
+ It is designed for work that can be broken into smaller pieces recursively. 
+ The goal is to use all the available processing power to enhance the performance of your application.
+
+As with any ExecutorService implementation, the fork/join framework distributes tasks to worker threads in a thread pool.
+ The fork/join framework is distinct because it uses a work-stealing algorithm. 
+ Worker threads that run out of things to do can steal tasks from other threads that are still busy.
+
+
+22. Tooge loengumaterjali põhjal näide, kus on rikutud kõrge kokkukuuluvuse ja vähese
+sõltuvuse printsiipi (high cohesion – low coupling). Milles rikkumine seisneb? Testis
+peate ära tundma, kas ja kuidas kood neid printsiipe rikub.
+
+Register register = new StudentRegister();
+int numOfStudents = register.numOfStudents;
+Kõige lihtsam juhtum: kasutab teise välju
+
+
+23. Millised on kolm põhilist viisi andmete turvaliseks kasutamiseks lõimedes?
+Do not share: igaüks ostab oma jäätise
+● Make immutable: igaüks ainult vaatab, aga ei söö
+● Synchronize: sööme kordamööda sama jäätist
+
+
+
+Lambdade kohta palun lugege läbi ained.ttu.ee all kättesaadav peatükk raamatust „Java 8 in
+Action” (30 October - 5 November nädala all) ning 27 November - 3 December all olev „OOP
+vs FP” artikkel. Samuti ained.ttu.ee 15. nädala all Blochi „Thread safety” peatükk „Effective
+Java” raamatust.

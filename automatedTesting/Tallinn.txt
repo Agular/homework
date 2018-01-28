@@ -1,0 +1,8 @@
+Tallinn
+lon:24.75 lat:59.44
+temp:2.0
+date:2017-12-21 max:4.5 min:0.06
+date:2017-12-22 max:2.08 min:-0.22
+date:2017-12-23 max:4.47 min:-0.71
+date:2017-12-24 max:4.28 min:1.18
+date:2017-12-25 max:2.89 min:0.29

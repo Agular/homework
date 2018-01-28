@@ -1,0 +1,8 @@
+Cairns
+lon:145.77 lat:-16.92
+temp:23.0
+date:2017-12-21 max:27.74 min:25.3
+date:2017-12-22 max:25.98 min:24.53
+date:2017-12-23 max:27.71 min:25.1
+date:2017-12-24 max:27.9 min:24.76
+date:2017-12-25 max:28.13 min:25.14

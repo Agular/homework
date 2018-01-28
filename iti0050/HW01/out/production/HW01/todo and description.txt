@@ -1,0 +1,32 @@
+Partneri leidmise loogika:
+
+Kui liitub meessoost isik, siis leitakse talle ootejärjekorrast pikim temast lühem naissoost tantsupartner.
+
+Kui liitub naissoost isik, siis leitakse talle ootejärjekorrast lühim temast endast pikem meessoost tantsupartner.
+
+Kui ootejärjekorras kriteeriumitele vastavat partnerit ei ole, siis lisatakse liitunud isik ootejärjekorda.
+Implementatsiooni nõuded:
+
+Iga tantsijat iseloomustab kolmik (int id, Gender gender, int height).
+Kui partner leitakse, siis kustutatakse leitud partner ootejärjekorrast ja tagastatakse tantsupaari andmed.
+Kui parnerit ei leita siis lisatakse tantsija ootejärjekorda ja tagastatakse null.
+Tantsija registreerimise ja partneri leidmise keerukus on O(lg n), kus n on ootejärjekorras olevate tantsijate arv ja see on implementeeritud binaarse otsingupuuna.
+
+Binaarne otsingupuu tuleb ise implementeerida primitiivsete andmetüüpide baasil.
+Max 10 punkti, kui kasutatakse mõnd isebalanseerivat otsingupuud.
+Max 8 punkti, kui kasutatakse mittebalanseerivat otsingupuud.
+Soovitusi:
+
+Otsingupuu implementeerida eraldi klassina.
+Alguses on mõistlik ülesande enda lahenduse loogika testimiseks kasutada mõnd lihtsamat andmestruktuuri ja lisada otsingupuu, kui muu funktsionaalsus on korras.
+Sisemiselt võib loogika lihtsustamiseks kasutada rohkem kui ühte andmestruktuuri (otsingupuud).
+Meetod findPartnerFor(Dancer d) partneri leidmise korral peab tagastama objektide järjestatud paari, kus esimesena on naine ning teisena mees. Ehk siis teisisõnu: findPartnerFor(d) => SimpleEntry(woman, man).
+Esitamine ja hindamine
+Töö tuleb esitada repositooriumi kaudu ja enne kaitsmist läbida vähemalt 6 kohustuslikku automaattesti, mis annavad testimise tulemuseks kokku 5 punkti 10st:
+
+testEmptyTreesAreEmpty
+testCrashTest
+testRunOutOfPartnersThenFindSomeMore
+testWaitingList
+testMaleTreeImplementation
+testFemaleTreeImplementation

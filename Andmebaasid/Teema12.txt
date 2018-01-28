@@ -1,0 +1,145 @@
+Kuidas mõjutab hajus andmebaas süsteemi keerukust, käideldavust,
+operatsioonide töökiirust, süsteemide lokaalset autonoomiat? (suurendab kõiki)
+
+
+• Millised on erinevad andmete paigutamise strateegiad ning nendest igaühe
+tugevad ja nõrgad küljed?
+ Tsentraalne – Kogu andmebaas on ühe serveri
+kontrolli all.
+ Killustamine – Andmebaas on jaotatud üksteisega
+mittekattuvateks osadeks (kildudeks) ning need
+osad on erinevate serverite kontrolli all.
+ Täielikud koopiad – Iga server haldab täielikku
+koopiat andmebaasist. Muudatusi tuleb
+sünkroniseerida.
+ Valikulised koopiad – Kombinatsioon
+killustamisest, koopiate tegemisest ja
+tsentraliseerimisest.
+
+
+• Milline andmebaasisüsteem võimaldab luua andmebaasi linke? (Oracle 12c)
+
+
+• Millised on nõuded tabelite killustamisele (fragmenteerimisele)? (kildudest
+peab saama originaali taastada, kildudes ei tohi olla andmete liiasust,
+kildudele peab deklareerima kitsendused)
+
+
+• Milline operatsioon tuleb tabelile T rakendada tabeli T horisontaalseks
+killustamiseks? (piirang)
+
+
+• Milline operatsioon tuleb tabelile T rakendada tabeli T vertikaalseks
+killustamiseks? (projektsioon)
+
+
+• Millist operatsiooni tuleb kasutada horisontaalse killustamise tulemuste
+põhjal algse tabeli taastamiseks? (ühendi leidmine e union)
+
+
+• Millist operatsiooni tuleb kasutada vertikaalse killustamise tulemuste põhjal
+algse tabeli taastamiseks (ühendamine e JOIN)
+
+
+• Milline on hajusate andmebaaside põhiprintsiip? (hajus andmebaas peab
+kasutajale paistma samasugune kui mittehajus)
+
+
+• Mida ütleb CAP teoreem? (hajussüsteemis saab kolmest CAP omadusest
+kehtida maksimaalselt kaks)
+
+
+• Mida tähendavad CAP teoreemis viidatud süsteemsed nõuded
+hajussüsteemidele (terviklikkus, käideldavus, jaotustaluvus) ning kuidas
+need üksteist mõjutavad?
+ Ühes komponent-andmebaasis muudetakse
+andmeid. See muudatus tuleb teha ka kõigis teistes
+komponent-andmebaasides, tagamaks, et kõigil
+klientidel on asukohast sõltumata lugemiseks samad
+andmed (terviklikkuse nõue).
+ Muudatus tuleb teha koheselt – ilma süsteemi üldist
+tööd katkestamata (käideldavuse nõue).
+ Süsteem peab taluma katkestusi serverite vahelises
+võrguühendustes (jaotustaluvuse nõue).
+ Eelnev tähendab, et süsteem ei saa tagada käideldavust.
+
+ Andmebaas peab olema alati lugemiseks ning
+muutmiseks kasutatav (käideldavuse nõue) ning
+seda isegi siis, kui tekivad katkestused serverite
+vahelises võrguühenduses (jaotustaluvuse nõue).
+ Eelnev on võimalik vaid juhul, kui süsteem ei pea
+tagama andmete terviklikkust igal ajahetkel, vaid
+võib seda teha viivitusega.
+
+
+• Mis on hajus andmebaasisüsteem? (andmebaasisüsteemide partnerlus)
+
+
+• Mis on andmete replikeerimine? (andmetest koopiate tegemine)
+
+
+• Sünkroonne vs. asünkroonne replikeerimine – omadused, eelised?
+ Koopiate värskendamine toimub kohe
+andmeid muutva transaktsiooni käigus.
+ Eelised.
+ Kõigis koopiates on ühesugused värsked andmed.
+ Probleemid.
+ Andmemuudatusi sisaldava transaktsiooni täitmine
+võtab rohkem aega ja võib ka ebaõnnestuda
+(näiteks võrguühenduse probleemide tõttu).
+
+ Koopiaid ei värskendata andmemuudatuse
+käigus.
+ Koopiate värskendamine toimub
+perioodiliselt.
+ Palju levinum kui sünkroonne.
+ Koopiate kooskõla (andmete terviklikkus
+hajusa andmebaasi mõttes) saavutatakse
+viiteajaga (eventual consistency).
+
+
+• Kuidas replikeerimise meetodi (sünkroonne vs. asünkroonne) valik mõjutab
+süsteemi jaotustaluvust? (sünkroonne vähendab, asünkroonne mitte)
+
+
+• Mis on föderatiivne hajussüsteem? (komponent-süsteemid on
+autonoomsed)
+
+
+• Mida tähendab hajusa transaktsiooni kinnitamisel, et osalised peavad
+jõudma konsensusele (selleks kasutatakse konsensuse saavutamise
+protokolle)? (peavad otsustama, kas kõik lokaalsed transaktsioonid
+kinnitada või tühistada)
+
+
+• Hajusate transaktsioonide kahefaasilise kinnitamise protokoll. Millised on
+faasid, mis on iga faasi ülesanded, millised on transaktsiooni osapoolte
+vahelise suhtluse stsenaariumid?
+ Hääletamise faas.
+ Koordinaator palub kõigil osalistel hääletada, kas
+globaalne transaktsioon kinnitada või tühistada.
+ Osalised teatavad oma otsusest.
+ Kinnitamise faas.
+ Koordinaator saadab otsuse osalistele.
+ Kui kõik poolt, siis kinnitada.
+ Kui vähemalt üks vastu, siis tühistada.
+ Kui mõni osaline korduvalt ei vasta, siis tühistada.
+ Osaline täidab koordinaatori otsuse ja teavitab teda
+täitmisest.
+
+
+• Milline on mitteföderatiivse hajussüsteemi osaliste suhtluse analoogia?
+(nukuteater – nukujuht ja tema nukud)
+
+
+• Milline on föderatiivse hajussüsteemi osaliste suhtluse analoogia? (orkester
+– dirigent ja orkestrandid; orkestratsioon)
+
+
+• Milline on tõeliselt hajusa süsteemi osaliste suhtluse analoogia? (tantsijad;
+koreograafia)
+
+
+• Mida tähendavad SQL-andmebaasis loogiline ja füüsiline replikeerimine?
+(üle kantakse kas tabelis toimunud andmemuudatuse kirjeldus (loogiline) või
+muduatused tabeli- ja indeksiplokkides (füüsiline))

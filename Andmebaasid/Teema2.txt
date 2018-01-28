@@ -1,0 +1,212 @@
+• Milliseid andmetüüpe saab kasutada PostgreSQLis ja Oracles? Millised on
+andmetüübid, mida saab kasutada ühes, aga ei saa kasutada teises?
+
+
+• Ette on antud informatsioon, milliseid andmeid soovitakse tabeli T veerus v
+hoida. Peab oskama valida selle veeru jaoks PostgreSQLis ja Oracles
+sobivaima andmetüübi.
+
+• Millised vahemikus täisarvulised väärtused kuuluvad tüüpi SMALLINT?
+(-32768 kuni +32767)
+
+
+• Milline on kõige suurem väärtus, mida Oracle andmebaasis saab
+registreerida veerus, mis on tüüpi NUMBER(7,2) ja PostgreSQLis veerus,
+mis on tüüpi DECIMAL(7,2)? (99999.99)
+
+
+• Milline on sobivaim andmetüüp rahasummade andmete hoidmiseks?
+(DECIMAL(p,s) PostgreSQLis ja NUMBER(p,s) Oracles)
+
+
+• VARCHAR2 tüüpi väärtuse maksimaalne suurus Oracles? (32767 baiti)
+
+
+• Milline on maksimaalne väljapikkus erinevate andmetüüpide (NUMBER,
+VARCHAR, VARCHAR2) korral?
+NUMBER
+VARCHAR 65535
+VARCHAR2 32767
+
+• Millises andmebaasisüsteemis saab/ei saa kasutada veeru tüübina tüüpe
+BOOLEAN, TIME, TEXT (saab PostgreSQLis ei saa Oracles) NUMBER,
+CLOB (saab Oracles ei saa PostgreSQLis)?
+
+
+• Milliseid andmebaasiobjekte saab luua PostgreSQLis, aga ei saa luua
+Oracles? (domeen)
+
+
+• Milliseid andmebaasiobjekte saab luua Oracles, aga ei saa luua
+PostgreSQLis? (sünonüüm)
+
+
+• Milliseid andmebaasiobjekte saab luua nii Oracles kui ka PostgreSQLis?
+
+
+• Millistele andmebaasi tasemele (väline, kontseptuaalne, sisemine) kuuluvad
+erinevad andmebaasiobjektid (näiteks vaated välisele; baastabelid
+kontseptuaalsele; indeksid sisemisele)?
+
+
+• Milleks kasutatakse/ei kasuta erinevaid andmebaasiobjekte – domeen,
+trigerid, reeglid, sünonüüm jne?
+
+
+• Kui on ette antud andmekirjelduskeele lause, siis peab oskama ära tunda,
+millis(t)es andmebaasisüsteemi(de)s saab seda käivitada.
+
+
+• Millist fraasi EI SAA Oracles kasutada korrektsetes välisvõtme
+deklaratsioonides? (ON UPDATE CASCADE , ON UPDATE NO ACTION,
+ON DELETE NO ACTION)
+
+
+• Milline string vastab etteantud regulaaravaldise mustrile?
+
+
+• Milliseid funktsioone/operaatoreid tuleb PostgreSQLis (~) ja Oracles
+(REGEXP_LIKE) kasutada, et kontrollida stringi vastavust regulaaravaldise
+mustrile?
+
+
+• Milliseid tabeli andmete sisemise taseme salvestamise meetodeid saab
+kasutada PostgreSQLis (tabeli ridade ühekordne sorteerimine,
+programmeeritav sektsioonideks jagamine) ja milliseid Oracles (tabelite
+klastrisse koondamine, indeks-organiseeritud tabel, tabeli sektsioonideks
+jagamine)?
+
+
+• Mida tähendab denormaliseerimise mõttes tabelite klastrisse koondamine
+Oracles? (andmete denormaliseerimine andmebaasi sisemisel tasemel)
+
+
+• Mida teha PostgreSQLis ja Oracles kui soovin tabeli ridasid andmebaasi
+sisemisel tasemel sorteerida?
+
+
+• Mis on Oracle ROWID ja PostgreSQL OID?
+
+
+• Mida tähendab, et baastabelis olev veerg on määratud identiteedi veeruks?
+(luuakse automaatselt arvujada generaator ja seotakse veeruga)
+
+
+• Kuidas saavutada PostgreSQLis ja Oracles surrogaatvõtmete väärtuste
+genereerimine andmebaasisüsteemi poolt?
+
+
+• Milline on Oracles identiteedi veeru deklareerimise süntaks? (GENERATED
+AS IDENTITY)
+
+
+• Milliseid erinevaid indeksite tüüpe võimaldavad kasutada PostgreSQL
+(B-puu, R-puu, hash, BRIN) ja Oracle (B-puu, Bitmap, Bitmap join)? Milliste
+andmete indekseerimiseks kasutatakse erinevat tüüpi indekseid (B-puu,
+Bitmap indeks, R-puu indeks)?
+
+
+• Millised andmed on PostgreSQL BRIN indeksis? (iga plokkide vahemiku
+korral kokkuvõtteinfo väärtuste vahemiku kohta plokkide vahemikus)
+
+
+• Mis on osaline indeks? (ainult osadele tabeli ridadele)
+
+
+• Mis on funktsioonil põhinev indeks? (indeksis olevad väärtused on võetud
+tabeli veerust, kuid enne indeksisse panekut on neile rakendatud mingi
+funktsioon, nt upper)
+
+
+• Kas B-puu indeksi loomisel sorteeritakse read automaatselt indekseeritud
+veeru alusel? (ei)
+
+
+• Kuidas saab määrata salvestusseadet, millele andmeobjektis olevad
+andmed tuleb andmebaasis sisemiselt salvestada? (määrata tabel kindlasse
+tabeliruumi; tabeliruum omakorda on seotud andmefailidega, millesse selle
+tabeliruumi tabelite/indeksite/hetktõmmiste andmed salvestatakse)
+
+
+• Kas ja millistele tingimustele vastavate vaadete kaudu saab muuta andmeid
+PostgreSQL ja Oracle andmebaasi baastabelites? (rusikareegel, kui "lihtne"
+päring ühe tabeli põhjal, siis saab. Oracles saab ka läbi mõnede
+ühendamise päringuga vaadete)
+
+
+• Mida tähendab WITH CHECK OPTION määran vaate loomise lauses?
+(andmemuudatus vaate kaudu peab rahuldama vaate alampäringu
+tingimusi)
+
+
+• Millised laused käivitavad/ei käivita trigereid ning kui mitu korda trigeri
+protseduuri täidetakse? Peab oskama eristada reataseme (FOR EACH
+ROW) ja lausetaseme (FOR EACH STATEMENT) trigereid ning saama aru,
+millised sündmused (SQL laused) põhjustavad ühe või teise trigeri
+käivitumise.
+
+
+• Mis on PostgreSQL sündmustriger? (käivitub skeemimuudatuste
+tulemusena)
+
+
+• Millised on PostgreSQL (SQL, PL/pgSQL, C, PL/Perl, PL/Tcl jne) ja Oracle
+(PL/SQL, Java) funktsioonide loomise keeled?
+
+
+• Kuidas määrata PostgreSQLi kasutaja-defineeritud funktsioonis, et
+funktsioon ei tagasta väärtust? (RETURNS VOID)
+
+
+• Millised andmebaasisüsteemid toetavad SQL standardis ette nähtud
+INFORMATION_SCHEMA skeemi? (PostgreSQL toetab, Oracle ei toeta)
+
+
+• Mis juhtub kui Oracles luua tabel: CREATE TABLE Arv(arv INTEGER); Kas
+selline tabel luuaks ja kui jah, siis mis on veeru arv tüüp (sealhulgas täpsus
+ja skaala)? (NUMBER(38))
+
+
+• Mis on deterministlik funktsioon? (samade argumentidega alati sama
+tagastatud tlemus) Milline etteantud funktsioonidest on deterministlik
+funktsioon? (nt andmebaasist andmeid otsiv ei ole)
+
+
+• Milliseid andmebaasiobjekte saab/ei saa Oracles luua PL/SQL keele abil?
+
+
+• Millises andmebaasisüsteemis (PostgreSQL/Oracle) on võimalik kasutada
+anonüümseid plokke? (jah, mõlemas on)
+
+
+• Milliseid võimalusi aktiivse andmebaasi loomiseks pakuvad Oracle ja
+milliseid PostgreSQL? (deklaratiivsed kitsendused, vaikimisi väärtused,
+trigerid; PostgreSQLis lisaks reeglid)
+
+
+• Kas Oracles saab luua andmekäitluskeele ümberkirjutamise reegleid? (ei)
+
+
+• Oletame, et mul on vaja PostgreSQL andmebaasis jõustada kitsendus, mille
+kontroll hõlmab andmete lugemist mitmest erinevast tabelist. Millisel viisil
+on/ei ole võimalik sellist kitsendust PostgreSQL andmebaasis jõustada?
+(trigeritega või reeglitega)
+
+
+• Milliseid võimalusi kasutajate andmemuudatuste registreerimiseks pakub
+PostgreSQL ja milliseid Oracle? (Oracles ei saa kasutada reegleid)
+
+
+• Milliseid veergude omadusi saab domeenis kirjeldada? (andmetüüp,
+vaikimisi väärtus, NOT NULL, CHECK, märkide võrdlusreeglistik – collation)
+
+
+• Millist tüüpi kitsenduste spetsifikatsioonid võivad/ei või sisalduda CREATE
+DOMAIN lauses? (võivad NOT NULL ja CHECK)
+
+
+• Milline andmebaasiobjekt ei ole skeemiobjekt? (nt roll, kasutaja, tabeliruum)
+
+
+• Millised märgid on/ei ole lubatud PostgreSQL ja Oracle regulaarsetes
+identifikaatorites? (@ / \ ? % ei ole lubatud)

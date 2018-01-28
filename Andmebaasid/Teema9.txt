@@ -1,0 +1,83 @@
+Mis tüüpi andmemudelitega andmebaasisüsteeme loetakse
+NoSQL süsteemide hulka kuuluvaks?
+ Agregaatidel (kogumitel) põhinevad.
+ Võtme-väärtuse paarid.
+ Agregaadiks on võtmega seotud väärtus.
+ Andmebaasisüsteem ei näe agregaatide „sisse“.
+ Dokumendid.
+ Agregaadiks on dokument.
+ Andmebaasisüsteem näeb agregaatide „struktuuri“, saab
+muuta andmeid agregaadi sees, otsida andmeid agregaadi
+seest.
+ Veeruperekonnad.
+ Veeruperekond on nagu tabel selle vahega, et igal real
+võib olla erinev struktuur, st koosneda erinevatest
+veergudest.
+ Agregaadiks on veeruperekonda kuuluv rida.
+ Andmebaasisüsteem näeb agregaatide „struktuuri“,
+saab muuta andmeid agregaadi sees, otsida andmeid
+agregaadi seest.
+ Graafidel põhinevad.
+
+• Mis iseloomustab NoSQL süsteeme võrreldes teiste
+andmebaasisüsteemidega?
+andmeid hoitakse rohkem koos yksteisega?
+
+
+• Mida tähendab see, et NoSQL abil luuakse "skeemituid" andmekogusid?
+ Öeldakse, et nende abil luuakse
+"skeemituid" andmekogusid.
+ Skeem määrab ära andmete struktuuri.
+ Andmebaasisüsteem ei nõua skeemi
+defineerimist ning ei saa skeemi kirjelduse
+
+
+Õigem oleks eristada:
+ kirjutamise skeem (schema-on-write),
+ hulk reegleid, millele peavad andmed vastama ja mille täidetust
+kontrollib andmebaasisüsteem andmete andmebaasi lisamisel.
+ lugemise skeem (schema-on-read),
+ andmete lugeja arusaam andmete struktuurist, mis on vajalik
+andmetest arusaamiseks.
+ NoSQL "skeemitus" tähendab, et andmetel:
+ ei ole kirjutamise skeemi,
+ on lugemise skeem.
+puudumisel ka kontrollida andmete skeemile
+vastavust.
+
+• Mida tähendab viiteajaga terviklikkuse tagamine (eventual consistency)
+NoSQL süsteemide abil loodud andmekogudes?
+ Terviklikkus NoSQLi tähenduses.
+ "Skeemitus" andmebaasis kitsendusi ei jõustata.
+ Sageli võimaldavad lähenemist, et andmete
+koopiad erinevates serverites sünkroniseeritakse
+viiteajaga (eventual consistency).
+
+• Mida tähendab lugemise skeem ja mida kirjutamise skeem?
+ kirjutamise skeem (schema-on-write),
+ hulk reegleid, millele peavad andmed vastama ja mille täidetust
+kontrollib andmebaasisüsteem andmete andmebaasi lisamisel.
+
+ lugemise skeem (schema-on-read),
+ andmete lugeja arusaam andmete struktuurist, mis on vajalik
+andmetest arusaamiseks.
+
+• Kas ja milline skeem on skeemitus NoSQL andmebaasis? (andmetel on
+lugemise skeem)
+
+
+• Millised NoSQL andmemudelid põhinevad agregaatide kasutamisel (võtmeväärtus
+paarid, dokumendid, veergude perekonnad) ja millised ei põhine
+(graafid)?
+
+
+• Mõnede tuntumate NoSQL süsteemide andmemudelid (MongoDB –
+dokumendid; Neo4j – omaduste graaf; Redis – võti-väärtus paarid;
+Cassandra – veergude perekonnad)
+
+
+• Millal kaaluda NoSQL andmebaasisüsteemi kasutamist?
+
+
+• NoSQL süsteemide probleemid? (nt palju piiratumad või üldse puuduvad
+võimalused andmebaasi tasemel kitsenduste jõustamiseks)

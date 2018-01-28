@@ -1,0 +1,216 @@
+Andmekäitluskeele lause täitmisplaani koostamise sammud, nende
+sammude järjekord ja igalt sammult oodatav tulemus.
+ Dekompositsioon
+ Analüüsi puu
+Luuakse analüüsi puu. Süntaksi kontroll.
+ Kui lause on tehtud vaate põhjal, siis vaate
+lahtikirjutamine e vaate aluseks oleva lause
+ning vaate põhjal tehtud lause mestimine ja
+analüüsi puu täiendamine.
+ Semantiline analüüs.
+
+
+ Täitmisplaani koostamine ja parandamine
+ Loogiline täitmisplaan – relatsioonialgebra puu
+ Füüsiline täitmisplaan – relatsioonialgebra operatsioone
+realiseerivate sisemise taseme operatsioonide kogum
+ Loogilise täitmisplaani koostamine analüüsi puu
+põhjal.
+ Loogilise täitmisplaani parandamine.
+ Normaliseerimine – tingimuse konjunktiivsele
+normaalkujule viimine (valikuline).
+ Tingimuse lihtsustamine (valikuline).
+ Semantiline teisendamine (valikuline).
+ Vastuolude otsimine (valikuline).
+ Optimaalse tegevuste järjekorra valimine.
+ Füüsilise täitmisplaani koostamine.
+ Täitmisplaanide genereerimine ja igaühe
+maksumuse arvutamine.
+ Sisemise taseme operatsioonide valimine.
+ Madalaima maksumusega plaani valimine.
+
+
+ Täitmisplaani täitmine
+ Füüsilises täitmisplaanis ette nähtud operatsioonide
+täitmine ettenähtud järjekorras
+
+
+
+• Milline on heuristiline meetod loogilise täitmisplaani optimeerimiseks? 
+(viia andmete hulka piiravad unaarsed operatsioonid – piirang ja projektsioon – läbi enne ühendamise operatsiooni)
+
+
+• Kes või mis koostab andmekäitluskeele lausete täitmisplaane?
+(andmebaasisüsteem)
+
+
+• Milleks läheb täitmisplaani vaja? 
+(kirjeldab protseduuri, mida täites jõuab andmebaasisüsteem lausega soovitud tulemuseni)
+
+
+• Millised on ühendamisoperatsiooni läbiviimiseks kasutatavad algoritmid? outer join, inner join, index join, hash join, nested loop, merge join
+Millistel nendest puudub ettevalmistav faas? (nested loop join)
+
+
+• Kas algoritmi valikust sõltuvad lõpuks leitavad ja kasutajale esitatavad
+andmed? (ei sõltu)
+
+
+• Mida kujutab endast andmekäitluskeele lause semantiline teisendamine?
+ Lause lihtsustamine vastavalt andmebaasis
+deklareeritud kitsendustele.
+ Andmebaasisüsteem saab eeldada andmete
+kooskõla kitsendustega.
+
+
+• Mida kujutab endast tabeli elimineerimise teisendus?
+ Kui päringus viidatakse mõnele tabelile T, mida
+tegelikult pole päringu täitmiseks vaja lugeda, siis
+andmebaasisüsteem koostab täitmisplaani, mille
+alusel tabelit T ei loeta.
+
+
+• Millistes andmebaasisüsteemides saab andmekäitluskeele kirjutamisel
+kasutada vihjeid (Oracles saab ja PostgreSQLis ei saa), milleks vihjeid
+kasutatakse ning kuidas neid kirja pannakse? (nagu kommentaar SELECT
+klauslis)
+ Täitmisplaani koostajat saab vihjetega suunata.
+ Optimeerijat võib sundida:
+ kasutada reeglipõhist optimeerijat,
+ kasutada mingit kindlat indeksit,
+ kasutada mingit ühendamise järjekorda,
+ ...
+ Probleemid.
+ Kas administraator on ikka targem/kavalam kui
+andmebaasisüsteem?
+ Andmete/serveri seadete muutudes ei pruugi vihje olla
+enam sobiv.
+
+vihjed, välise tabeli sundimine
+
+
+• Mis vahe on andmete loogilisel lugemisel (lugemine muutmälust) ja füüsilisel
+lugemisel (lugemine kettalt)? Kuidas mõjutab lugemiste arv operatsioonide
+töökiirust? (mida vähem lugemisi, seda parem operatsioonide töökiirusele)
+
+
+• Mida tähendab maksumuspõhine optimeerimine?
+ Valida täitmisplaan, millel on kõige madalam
+maksumus.
+ Üks võimalik maksumuse kriteerium: ketta poole
+pöörduste arv.
+ Mida väiksem on lause täitmisplaani maksumus, seda
+vähem tuleb selle järgi lugeda kettal olevaid plokke.
+ Maksumuse arvutamiseks on vaja statistikat
+tabelites ja indeksites olevate andmete kohta.
+ Statistikat peab regulaarselt värskendama.
+
+
+• Mida kujutab endast Oracle poolt liitindeksite korral kasutatav skip-scan
+operatsioon?
+
+
+• Kas tabelite ühendamisoperatsiooni sisaldava päringu lõpptulemusena
+leitavad ja kasutajale esitatavad andmed sõltuvad sellest, millist sisemise
+taseme algoritmi (nested loop join, merge join, hash join) kasutati
+andmebaasisüsteemi poolt ühendamisoperatsiooni läbiviimiseks? (ei, mitte
+kunagi)
+
+
+• Mis on B-puu indeksi sõlmedeks?
+reade vahemikud
+
+
+• Milliste veergude korral on kõige otstarbekam neid B-puu indeksi abil
+indekseerida? (palju erinevaid väärtuseid)
+
+
+• Millises olukorras peaks andmebaasisüsteem eelistama päringu täitmiseks
+indeksi kasutamise asemel tabeli täielikku läbiskaneerimist? (tabelis väga
+vähe ridu; tabelis väga palju ridu ja päring peab leidma suure osa nendest
+ridadest)
+
+
+• Mis võib olla põhjuseks, et andmebaasisüsteem ei kasuta indeksit?
+Indeksit ei kasutata, kui WHERE klauslis ei
+lange kasutatud literaali andmetüüp kokku
+veeru andmetüübiga.
+
+ Indeksit ei kasutata, sest tabeli/indeksi kohta
+kogutud statistika on vananenud ja vananenud
+info alusel leiab andmebaasisüsteem, et parem on
+indeksit mitte kasutada.
+ Statistika on värske, kuid
+optimeerimismoodulisse sisse ehitatud reeglid
+soovitavad indeksit mitte kasutada.
+
+ Kui tabelis T toimub palju andmete
+muudatusi/kustutamisi, siis võib tabeliga seotud
+indeksis I olla palju kasutamata ruumi.
+ Kui tabelis T on palju andmeid, siis tuleks indeksit I
+regulaarselt uuesti üles ehitada, et muuta seda
+kompaktsemaks (hõlmab vähem plokke) ja
+optimeerijale atraktiivsemaks.
+
+
+• Kas sama ülesande lahendamiseks mõeldud erinevatel SQL lausetel, mis
+annavad loogiliselt samaväärse tulemuse, on samas andmebaasisüsteemis
+(PostgreSQL ja Oracle näitel) alati ühesugune füüsiline täitmisplaan? (ei)
+
+
+• Mis peab olema andmebaasis tehtud, et tabelite elimineerimise teisendusi
+toetaval andmebaasisüsteemil oleks võimalik neid teisendusi läbi viia?
+(deklareeritud välisvõtmed)
+Järgnevad küsimused käivad ka teema 7 alla, kuid neile leiab vastuse eeskätt
+harjutustunni slaidikomplektist SQL_DML_keele_lausete_taitmisplaanid.
+
+
+• Millise ühendamisoperatsiooni algoritmi valimiseni viib Oracles vihje
+FIRST_ROWS kasutamine? (nested loop join)
+
+
+• Millise vahendiga saab Oracles SQL*Plus programmis vaadata
+andmekäitluskeele lausete täitmisplaane ja statistikat (AUTOTRACE,
+EXPLAIN PLAN) ja millise lause abil saab täitmisplaane vaadata
+PostgreSQLis (EXPLAIN)?
+
+
+• Mis vahe on Oracles Autotrace ja EXPLAIN lause kasutamisel? (Autotrace
+korral lause ka täidetakse, EXPLAIN korral koostatakse ainult plaan)
+
+
+• Milline info on Oracle trace failis? (tegelikud täitmisplaanid)
+
+
+• Mida tähendavad Oracle AUTOTRACE statistika aruandes recursive calls,
+physical reads, consistent gets, db block gets näitajad?
+
+recursive calls - täitmisplaani koostamises ja täitmise käigus genereeritud sql lausete arv
+consistent gets - kui mõnda küsiti plokki sellisena nagu oli ta sql lause täitmse alguses
+db block gets - kui mõnda küsiti plokki sellisena nagu nad olid lugemise laguses
+
+
+• Milleks on PostgreSQLis (ANALYZE) ja Oracles (dbms_stats paketi
+protseduuri käivitamine) laused/käsud andmebaasi statistika kogumiseks?
+Milleks kogutud statistikat kasutatakse?
+
+
+• Millise nimega meetodeid kasutab Oracle indeksi põhjal andmete
+otsimiseks?
+
+
+• Mida kujutab endast index unique scan operatsioon? Kui mitu rida võidakse
+selle abil maksimaalselt leida? (üks)
+
+
+• Mida kujutab endast index range scan operatsioon? Milliseid plokke selle
+käigus loetakse?
+vahemik
+
+• Peab saama aru etteantud täitmisplaanidest (täitmisplaanid on samad, mis
+slaidikomplektis SQL_DML_keele_lausete_taitmisplaanid).
+
+
+• SQL_DML_keele_lausete_taitmisplaanid slaidikomplekti põhjal – milline on
+analoogia erinevate raamatu lugemise stsenaariumite ja indeksi
+kasutamise/mittekasutamise stsenaariumite vahel.

@@ -1,0 +1,176 @@
+Milliseid SQL lauseid kasutatakse õiguste andmiseks (GRANT), rollide
+andmiseks (GRANT), õiguste äravõtmiseks (REVOKE), rollide äravõtmiseks
+(REVOKE)?
+
+
+• Mida tähendab andmete käideldavus?
+Andmete käideldavus on kasutamiskõlblike
+andmete õigeaegne ja hõlbus kättesaadavus
+eelnevalt kokkulepitud vajalikul/nõutaval
+tööajal.
+
+• Euroopa Liidu isikuandmete kaitse üldmääruse eesmärk ja põhimõtted.
+ Isikult tohib küsida ainult asjakohaseid andmeid,
+mis on vajalikud andmete töötlemise eesmärgist
+lähtudes.
+ Isikuandmeid võib säilitada vaid niikaua, kuni
+nende kogumise algne eesmärk on täidetud.
+ Turvalisuse tagamiseks tuleb rakendada
+asjakohaseid tehnilisi ja korralduslike meetmeid.
+ Isikule tuleb esitada teavet tema isikuandmete
+töötlemise tingimuste ning tema õiguste kohta.
+ Isik peab saama küsida andmete töötlejalt millised
+on tema kohta käivad andmed, kust andmed
+pärinevad, milleks andmeid kasutatakse, kes
+andmeid töötleb ning kellele töötleja võib andmeid
+edastada.
+ Isikul on õigust nõuda oma isikuandmete töötlemise
+lõpetamist, ebaõigete isikuandmete parandamist ja
+kogutud isikuandmete sulgemist või kustutamist
+(õigus olla unustatud).
+23.11.2017 Teema 5
+
+
+• Millised isikuandmed on Euroopa Liidu isikuandmete kaitse
+üldmäärusekohaselt eriliigilised ja millised ei ole? (nimi ja isikukood ei ole)
+
+
+• Milline institutsioon kontrollib Eestis isikuandmete kaitse seaduste/määruste
+täitmist? (Andmekaitse Inspektsioon)
+
+
+• Mida tähendab vaikimisi andmekaitse põhimõte?
+ Vaikimisi andmekaitse põhimõte –
+andmesubjekti (isik, kelle andmeid
+töödeldakse) nõusolek andmete töötlemiseks
+peab olema vaba tahte väljendus, mitte
+vaikimisi eeldus.
+
+
+• Mis vahe on minimaalse ja maksimaalse pääsu poliitikal? Millist poliitikat
+rakendab PostgreSQL (üldiselt minimaalse pääsu poliitika kuid mõned
+õigused on vaikimisi kõigil) ja millist Oracle (range minimaalse pääsu
+poliitika)?
+
+ Minimaalse pääsu poliitika
+(suletud süsteem).
+ Kõik, mis pole lubatud, on keelatud.
+ Maksimaalse pääsu poliitika
+(avatud süsteem).
+ Kõik, mis pole keelatud, on lubatud.
+
+
+• Turvalisuse tagamise strateegiad.
+ Saab määrata, millistest asukohtadest (IP aadressid)
+võib võtta milline kasutaja ühendust milliste
+andmebaasidega ning kuidas peab ühenduse soovija
+ennast tuvastama (pg_hba.conf
+konfiguratsioonifail).
+ Kasutajad, rollid.
+ Õiguste andmine kasutajatele/rollidele ja nende
+äravõtmine.
+
+• Andmete konfidentsiaalsuse tagamise meetodid PostgreSQLis ja Oracles.
+Label security, FGAC, krüpteerimine
+
+
+• Milleks kasutatakse Oracles CREATE PROFILE lauset? Kas/kuidas aitab
+see kaasa turvalisuse parandamisele? (aitab määrata parooli vahetamise
+sagedust)
+
+
+• Millised on räsiväärtuste arvutamiseks mõeldud funktsioonid? (MD5, SHA-1,
+SHA-2 perekond)
+
+
+• Milleks on vaja parooli räsiväärtuse leidmisel kasutada soola? (raskendab
+sõnastikrünnet)
+
+
+• Mis vahe on väärtuse (nt parooli) põhjal räsiväärtuse leidmisel ja väärtuse
+krüpteerimisel? (räsifunktsioon on ühesuunaline – puudub pöördfunktsioon
+algväärtuse leidmiseks; krüpteeritud väärtuse saab võtme abil
+dekrüpteerida)
+
+
+• Millise nimega on laiendus, mille abil lisada PostgreSQL andmebaasi
+andmete krüpteerimiseks ja räsiväärtuste leidmiseks mõeldud funktsioonid?
+(pgcrypto)
+
+
+• Millise nimega on Oracle (12c) süsteemi-defineeritud pakett, mis sisaldab
+räsiväärtuste leidmiseks ning andmete krüpteerimiseks mõeldud rutiine?
+(dbms_crypto)
+
+
+• Millise eesliitega peavad algama Oracle 12c andmebaasis üldiste
+(konteinerandmebaasi tasemel loodud) kasutajate ja rollide kasutajanimed?
+(c##)
+
+
+• Milline on põhiline andmete turvalisuse aspekt, mida Oracle 12c
+andmebaasisüsteemis aitab tagada AUDIT lause kasutamine
+(revideeritavus), Oracle Data Guard (käideldavus), Transparent Data
+Redaction ja Label Security (konfidentsiaalsus)?
+
+
+• Kui tabelis on parooli soolatud räsiväärtus, siis kas parooli tugevust saab
+kontrollida CHECK kitsendusega? (ei)
+
+
+• Mida kujutab endast SQL süstimise (SQL injection) rünnak?
+Tehnika, mis kasutab süsteemi
+andmebaasikihi haavatavust.
+ Haavatavus ilmneb, kui kasutaja poolt
+sisestatud andmeid pole piisavalt kontrollitud
+ning sisestatud sümbolid mõjutavad
+ootamatult SQL lause käitumist ja tulemust.
+
+
+• Kas SQL süstimise rünnakuga saab rünnata rutiini, mis sisaldab staatilist
+SQLi (ei) või dünaamilist SQLi (jah, sõltub, kuidas see realiseeritud)?
+
+
+• Oletame, et PostgreSQL andmebaasis on kasutaja-defineeritud funktsiooni
+loomisel kasutatud määrangut SECURITY INVOKER või Oracles on
+kasutatud määrangut AUTHID CURRENT_USER. Mis on selle määrangu
+tulemus? Milliseid õiguseid on vaja selliste määrangutega funktsioonide
+käivitamiseks? (funktsiooni käivitamise õigus + õigused kõigi funktsioonis
+sisalduvate tegevuste käivitamiseks)
+
+
+• Oletame, et PostgreSQL andmebaasis on kasutaja-defineeritud funktsiooni
+loomisel kasutatud määrangut SECURITY DEFINER. Mis on selle
+määrangu tulemus? Milliseid õiguseid on vaja selliste määrangutega
+funktsioonide käivitamiseks? (ainult funktsiooni käivitamise õigust)
+
+
+• Kuidas piirata kasutajate juurdepääsu teatud tingimustele vastavatele tabeli
+ridadele? (vaadete, hetktõmmiste ja tabelifunktsioonide abil)
+
+
+• Kas CHECK kitsenduste või SELECT trigerite abil saab piirata, millistele
+tingimustele vastavaid ridu kasutajad tabelis näevad? (ei saa; SELECT
+trigereid pole lisaks olemaski)
+
+
+• Mida tähendab andmete maskimine?
+Algsed väärtused asendatakse uute
+väärtustega, mis on leitud olemasolevatest
+väärtustest mingi algoritmi alusel.
+ Andmetest säilib maskimata versioon.
+ Kuigi lihtsaimad meetodid kustutavad
+väärtuseid, asendavad neid XXXX vms, on
+eesmärgiks saada tõepärasena paistvad
+andmed.
+ Võimaldab luua konfidentsiaalsetest
+andmetest mittekonfidentsiaalseid.
+ Uutest väärtustest on raske, kuid mõnikord
+mitte päris võimatu, algseid väärtuseid teada
+saada. Tuleb valida sellised maskimise
+meetodid, et see poleks võimalik.
+
+
+• Millise üldistuse saab süsteemi turvalisuse tagamise osas teha Kerckhoffsi
+printsiibist?
+süsteemi turvalisus peaks olema tagatud ka siis, kui süsteemi kohta on kõik teada. v.a. võti.
