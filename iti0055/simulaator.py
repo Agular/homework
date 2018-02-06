@@ -5,32 +5,69 @@ Created on Thu Feb  1 13:53:19 2018
 @author: raluga
 """
 
-def vacworld_sim(initAgentLoc = "A", initRoomsConditions = [True, True], steps = 10):
-    
-    agentLocation = initAgentLoc;
-    roomsConditions = initRoomsConditions;
-    
+
+class Agent:
+
     state = {
-            "lastLocation": None,
-            "roomConditions" : [None, None]};
+            "lastMove": None}
+
+    def getReflexAction(self, location, roomIsDirty):
+        # decide action based on environment perception
+        if roomIsDirty:
+            return "Suck"
+        elif location == "A":
+            return "Right"
+        else:
+            return "Left"
+
+
+    def getStateReflexAction(self, location, roomIsDirty):
+        # decide action based on environment perception
+        if roomIsDirty:
+            self.state["lastMove"] = "Suck"
+            return "Suck"
+        elif self.state["lastMove"] == "Suck":
+            if location == "A":
+                self.state["lastMove"] = "Right"
+                return "Right"
+            else:
+                self.state["lastMove"] = "Left"
+                return "Left"
+        else:
+            self.state["lastMove"] = "NoOp"
+            return "NoOp"
+
+
+def vacworld_sim(initAgentLoc = "A", initRoomsConditions = [True, True], steps=10):
     
+    agentLocation = initAgentLoc
+    roomsConditions = initRoomsConditions
+
+    simpleAgent = Agent()
+
+
+    if roomsConditions[0] and roomsConditions[1]:
+        condition = "BOTH ROOMS ARE DIRTY"
+    elif roomsConditions[0] or roomsConditions[1]:
+        condition = "ONE ROOM IS DIRTY"
+    else:
+        condition = "ROOMS ARE CLEAN"
+
+    currentScore = {"score": 0,
+                    "condition": condition}
+
     for step in range(1, steps + 1):
-        # call agent program with data about the current environment
-        # perform agent action (update world state)
-        
-        #action = reflex_agent(agentLocation, getRoomCondition(agentLocation, roomsConditions));
-        
-        action, state = state_reflex_agent(agentLocation, getRoomCondition(agentLocation, roomsConditions),state)
-        
-        if action == "NoOp":
-            print("Agent does nothing")
+
+        agentAction = simpleAgent.getStateReflexAction(agentLocation, getRoomCondition(agentLocation, roomsConditions))
+
+        if agentAction == "NoOp":
             pass
-        elif action == "Left":
-            agentLocation = "A";
+        elif agentAction == "Left":
+            agentLocation = "A"
             pass
-        elif action == "Right":
-            agentLocation = "B";
-        elif action == "Suck":
+        elif agentAction == "Right":
+            agentLocation = "B"
+        elif agentAction == "Suck":
             if agentLocation == "A":
                 roomsConditions[0] = False
             else:
@@ -38,8 +75,11 @@ def vacworld_sim(initAgentLoc = "A", initRoomsConditions = [True, True], steps =
         else:
             raise NotImplementedError
             
-        print("step", step,"Robot at", agentLocation, "roomConditions", roomsConditions)
-            
+        print("step", step, "Robot at", agentLocation, "roomConditions", roomsConditions)
+        currentScore = calculateScore(currentScore, agentAction, roomsConditions)
+        print("Used energy:", currentScore["score"], " Room Condition:", currentScore["condition"])
+
+
 def getRoomCondition(agentLocation, roomsConditions):
     
     if agentLocation == "A":
@@ -50,27 +90,18 @@ def getRoomCondition(agentLocation, roomsConditions):
         raise NotImplementedError
 
 
-def reflex_agent(location, roomIsDirty):
-    # decide action based on environment perception
-    if roomIsDirty:
-        return "Suck";
-    elif location == "A":
-        return "Right"
+def calculateScore(currentScore, agentAction, roomsConditions):
+    newScore = currentScore
+    if agentAction != "NoOp":
+        newScore["score"] += 1
+    if roomsConditions[0] and roomsConditions[1]:
+        newScore["condition"] = "BOTH ROOMS ARE DIRTY"
+    elif roomsConditions[0] or roomsConditions[1]:
+        newScore["condition"] = "ONE ROOM IS DIRTY"
     else:
-        return "Left"
-    
-def state_reflex_agent(location, roomIsDirty, state):
-    action = None;
-    localState = state;
-    # decide action based on environment perception
-        # decide action based on environment perception
-    if roomIsDirty:
-        action = "Suck";
-    elif location == "A":
-        action = "Right"
-    else:
-        action = "Left"
-    return action, localState
+        newScore["condition"] = "ROOMS ARE CLEAN"
+    return newScore
+
 
 if __name__ == "__main__":
-    vacworld_sim();
+    vacworld_sim()
