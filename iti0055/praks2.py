@@ -98,7 +98,7 @@ def graph_get_neighbors(current, map):
 
 
 def valid_move(cx, cz, map):
-    if 0 <= cx < len(map) and 0 <= cz < len(map[0]):
+    if 0 <= cx < len(map) and 0 <= cz < len(map[cx]):
         if not map[cx][cz] == "*":
             return True
         else:
