@@ -118,7 +118,7 @@ def bfs_path(start, map):
     while not frontier.empty():
         current = frontier.get()
         cx, cz = current
-        info+=1
+        info += 1
         if map[cx][cz] is TREASURE:
             break
 

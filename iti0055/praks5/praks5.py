@@ -31,7 +31,7 @@ class TSP(search.Problem):
         return -path_length
 
 
-problem = TSP("gr17.txt")
+problem = TSP("gr21.txt")
 
 g = search.hill_climbing(problem)
 print(g)
